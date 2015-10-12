@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: 13aa340efca3d4dc5b250218aacaf93e
+timeCreated: 1444283138
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: CurvedPipe
+    100002: Lamp
+    100004: LongPipes
+    100006: pasted__polySurface645 pipes_wall4b Wall_4
+    100008: pipes_wall4b Wall_4 pasted__polySurface642
+    100010: pipes_wall4b Wall_4 pasted__polySurface665
+    100012: pipes_wall4b Wall_4 pasted__polySurface667
+    100014: pipes_wall4b Wall_4 pasted__polySurface668
+    100016: pipes_wall4b Wall_4 pasted__polySurface669
+    100018: Skinny
+    100020: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder6
+    100022: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder7
+    100024: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder8
+    100026: Wall_4 pasted__pCylinder5 OTHERPipes pipes_wall4a
+    100028: Wall_4 pipes_wall4a pasted__pCylinder23 pipes_horizontal
+    100030: Wall_4 pipes_wall4a pipes_horizontal pasted__pCylinder24
+    100032: WallScope1
+    100034: //RootNode
+    400000: CurvedPipe
+    400002: Lamp
+    400004: LongPipes
+    400006: pasted__polySurface645 pipes_wall4b Wall_4
+    400008: pipes_wall4b Wall_4 pasted__polySurface642
+    400010: pipes_wall4b Wall_4 pasted__polySurface665
+    400012: pipes_wall4b Wall_4 pasted__polySurface667
+    400014: pipes_wall4b Wall_4 pasted__polySurface668
+    400016: pipes_wall4b Wall_4 pasted__polySurface669
+    400018: Skinny
+    400020: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder6
+    400022: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder7
+    400024: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder8
+    400026: Wall_4 pasted__pCylinder5 OTHERPipes pipes_wall4a
+    400028: Wall_4 pipes_wall4a pasted__pCylinder23 pipes_horizontal
+    400030: Wall_4 pipes_wall4a pipes_horizontal pasted__pCylinder24
+    400032: WallScope1
+    400034: //RootNode
+    2300000: pasted__polySurface645 pipes_wall4b Wall_4
+    2300002: pipes_wall4b Wall_4 pasted__polySurface642
+    2300004: pipes_wall4b Wall_4 pasted__polySurface665
+    2300006: pipes_wall4b Wall_4 pasted__polySurface667
+    2300008: pipes_wall4b Wall_4 pasted__polySurface668
+    2300010: pipes_wall4b Wall_4 pasted__polySurface669
+    2300012: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder6
+    2300014: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder7
+    2300016: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder8
+    2300018: Wall_4 pasted__pCylinder5 OTHERPipes pipes_wall4a
+    2300020: Wall_4 pipes_wall4a pasted__pCylinder23 pipes_horizontal
+    2300022: Wall_4 pipes_wall4a pipes_horizontal pasted__pCylinder24
+    3300000: pasted__polySurface645 pipes_wall4b Wall_4
+    3300002: pipes_wall4b Wall_4 pasted__polySurface642
+    3300004: pipes_wall4b Wall_4 pasted__polySurface665
+    3300006: pipes_wall4b Wall_4 pasted__polySurface667
+    3300008: pipes_wall4b Wall_4 pasted__polySurface668
+    3300010: pipes_wall4b Wall_4 pasted__polySurface669
+    3300012: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder6
+    3300014: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder7
+    3300016: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder8
+    3300018: Wall_4 pasted__pCylinder5 OTHERPipes pipes_wall4a
+    3300020: Wall_4 pipes_wall4a pasted__pCylinder23 pipes_horizontal
+    3300022: Wall_4 pipes_wall4a pipes_horizontal pasted__pCylinder24
+    4300000: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder6
+    4300002: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder8
+    4300004: Wall_4 OTHERPipes pipes_wall4a pasted__pCylinder7
+    4300006: Wall_4 pasted__pCylinder5 OTHERPipes pipes_wall4a
+    4300008: Wall_4 pipes_wall4a pasted__pCylinder23 pipes_horizontal
+    4300010: Wall_4 pipes_wall4a pipes_horizontal pasted__pCylinder24
+    4300012: pasted__polySurface645 pipes_wall4b Wall_4
+    4300014: pipes_wall4b Wall_4 pasted__polySurface642
+    4300016: pipes_wall4b Wall_4 pasted__polySurface665
+    4300018: pipes_wall4b Wall_4 pasted__polySurface667
+    4300020: pipes_wall4b Wall_4 pasted__polySurface668
+    4300022: pipes_wall4b Wall_4 pasted__polySurface669
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

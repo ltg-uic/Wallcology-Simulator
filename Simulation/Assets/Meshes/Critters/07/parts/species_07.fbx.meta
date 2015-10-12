@@ -1,0 +1,190 @@
+fileFormatVersion: 2
+guid: 31139c4901f8e4554912349364db0c0a
+timeCreated: 1444186057
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: ffd1Base
+    100002: ffd1Lattice
+    100004: slimy
+    100006: //RootNode
+    100008: slimyRings
+    100010: Head
+    100012: joint1
+    100014: joint10
+    100016: joint11
+    100018: joint12
+    100020: joint13
+    100022: joint6
+    100024: joint7
+    100026: joint8
+    100028: joint9
+    100030: SkeletonCircles
+    100032: Slope1_F
+    100034: Slope1_R
+    100036: Slope_B
+    100038: Slope_F
+    100040: Slope_R
+    100042: Slope_1_L
+    100044: Slope_2_L
+    100046: Slope_L
+    400000: ffd1Base
+    400002: ffd1Lattice
+    400004: slimy
+    400006: //RootNode
+    400008: slimyRings
+    400010: Head
+    400012: joint1
+    400014: joint10
+    400016: joint11
+    400018: joint12
+    400020: joint13
+    400022: joint6
+    400024: joint7
+    400026: joint8
+    400028: joint9
+    400030: SkeletonCircles
+    400032: Slope1_F
+    400034: Slope1_R
+    400036: Slope_B
+    400038: Slope_F
+    400040: Slope_R
+    400042: Slope_1_L
+    400044: Slope_2_L
+    400046: Slope_L
+    2300000: slimy
+    2300002: slimyRings
+    3300000: slimy
+    3300002: slimyRings
+    4300000: slimy
+    4300002: slimyRings
+    7400000: walk
+    9500000: //RootNode
+    13700000: slimyRings
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: SkeletonCircles
+        weight: 1
+      - path: SkeletonCircles/Head
+        weight: 1
+      - path: SkeletonCircles/Head/joint8
+        weight: 1
+      - path: SkeletonCircles/Head/joint9
+        weight: 1
+      - path: SkeletonCircles/Slope_B
+        weight: 1
+      - path: SkeletonCircles/Slope_B/joint1
+        weight: 1
+      - path: SkeletonCircles/Slope_B/joint1/joint6
+        weight: 1
+      - path: SkeletonCircles/Slope_F
+        weight: 1
+      - path: SkeletonCircles/Slope_F/Slope1_F
+        weight: 1
+      - path: SkeletonCircles/Slope_F/Slope1_F/joint7
+        weight: 1
+      - path: SkeletonCircles/Slope_L
+        weight: 1
+      - path: SkeletonCircles/Slope_L/Slope_1_L
+        weight: 1
+      - path: SkeletonCircles/Slope_L/Slope_1_L/Slope_2_L
+        weight: 1
+      - path: SkeletonCircles/Slope_R
+        weight: 1
+      - path: SkeletonCircles/Slope_R/Slope1_R
+        weight: 1
+      - path: SkeletonCircles/Slope_R/Slope1_R/joint10
+        weight: 1
+      - path: slimyRings
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 80
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

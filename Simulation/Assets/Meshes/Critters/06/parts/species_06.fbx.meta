@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 35cafcd8d401c480aab43ac9f9df4614
+timeCreated: 1444194354
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: C_1
+    100002: C_2
+    100004: C_3
+    100006: C_4
+    100008: HeadTop
+    100010: L_1
+    100012: L_1_1
+    100014: L_1_2
+    100016: L_1_3
+    100018: L_1_4
+    100020: L_2
+    100022: L_3
+    100024: L_4
+    100026: L_ear
+    100028: neck
+    100030: R_1
+    100032: R_1_1
+    100034: R_1_2
+    100036: R_1_3
+    100038: R_1_4
+    100040: R_2
+    100042: R_3
+    100044: R_4
+    100046: R_ear
+    100048: RootSkeleton
+    100050: //RootNode
+    100052: species_geometry
+    400000: C_1
+    400002: C_2
+    400004: C_3
+    400006: C_4
+    400008: HeadTop
+    400010: L_1
+    400012: L_1_1
+    400014: L_1_2
+    400016: L_1_3
+    400018: L_1_4
+    400020: L_2
+    400022: L_3
+    400024: L_4
+    400026: L_ear
+    400028: neck
+    400030: R_1
+    400032: R_1_1
+    400034: R_1_2
+    400036: R_1_3
+    400038: R_1_4
+    400040: R_2
+    400042: R_3
+    400044: R_4
+    400046: R_ear
+    400048: RootSkeleton
+    400050: //RootNode
+    400052: species_geometry
+    4300000: species_geometry
+    7400000: 06_walking
+    9500000: //RootNode
+    13700000: species_geometry
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: 06_walking
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RootSkeleton
+        weight: 1
+      - path: RootSkeleton/C_1
+        weight: 1
+      - path: RootSkeleton/C_1/L_1
+        weight: 1
+      - path: RootSkeleton/C_1/L_1/L_1_1
+        weight: 1
+      - path: RootSkeleton/C_1/R_1
+        weight: 1
+      - path: RootSkeleton/C_1/R_1/R_1_1
+        weight: 1
+      - path: RootSkeleton/C_2
+        weight: 1
+      - path: RootSkeleton/C_2/L_2
+        weight: 1
+      - path: RootSkeleton/C_2/L_2/L_1_2
+        weight: 1
+      - path: RootSkeleton/C_2/R_2
+        weight: 1
+      - path: RootSkeleton/C_2/R_2/R_1_2
+        weight: 1
+      - path: RootSkeleton/C_3
+        weight: 1
+      - path: RootSkeleton/C_3/L_3
+        weight: 1
+      - path: RootSkeleton/C_3/L_3/L_1_3
+        weight: 1
+      - path: RootSkeleton/C_3/R_3
+        weight: 1
+      - path: RootSkeleton/C_3/R_3/R_1_3
+        weight: 1
+      - path: RootSkeleton/C_4
+        weight: 1
+      - path: RootSkeleton/C_4/L_4
+        weight: 1
+      - path: RootSkeleton/C_4/L_4/L_1_4
+        weight: 1
+      - path: RootSkeleton/C_4/R_4
+        weight: 1
+      - path: RootSkeleton/C_4/R_4/R_1_4
+        weight: 1
+      - path: RootSkeleton/neck
+        weight: 1
+      - path: RootSkeleton/neck/HeadTop
+        weight: 1
+      - path: RootSkeleton/neck/L_ear
+        weight: 1
+      - path: RootSkeleton/neck/R_ear
+        weight: 1
+      - path: species_geometry
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 7.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

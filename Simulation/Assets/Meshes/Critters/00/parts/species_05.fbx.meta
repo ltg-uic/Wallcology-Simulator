@@ -1,0 +1,173 @@
+fileFormatVersion: 2
+guid: 70062c9e9fe22485ea7e563429354016
+timeCreated: 1444084382
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Head
+    100002: Hips
+    100004: joint1
+    100006: joint2
+    100008: joint4
+    100010: joint5
+    100012: orangeSlimy_Star
+    100014: Slope1_F
+    100016: Slope1_L
+    100018: Slope1_R
+    100020: Slope2_F
+    100022: Slope2_L
+    100024: Slope2_R
+    100026: Slope_B
+    100028: Slope_F
+    100030: Slope_L
+    100032: Slope_R
+    100034: //RootNode
+    400000: Head
+    400002: Hips
+    400004: joint1
+    400006: joint2
+    400008: joint4
+    400010: joint5
+    400012: orangeSlimy_Star
+    400014: Slope1_F
+    400016: Slope1_L
+    400018: Slope1_R
+    400020: Slope2_F
+    400022: Slope2_L
+    400024: Slope2_R
+    400026: Slope_B
+    400028: Slope_F
+    400030: Slope_L
+    400032: Slope_R
+    400034: //RootNode
+    4300000: orangeSlimy_Star
+    7400000: 05_walking
+    9500000: //RootNode
+    13700000: orangeSlimy_Star
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: 05_walking
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Hips
+        weight: 1
+      - path: Hips/Head
+        weight: 1
+      - path: Hips/Head/joint4
+        weight: 1
+      - path: Hips/Head/joint5
+        weight: 1
+      - path: Hips/Slope_B
+        weight: 1
+      - path: Hips/Slope_B/joint1
+        weight: 1
+      - path: Hips/Slope_B/joint1/joint2
+        weight: 1
+      - path: Hips/Slope_F
+        weight: 1
+      - path: Hips/Slope_F/Slope1_F
+        weight: 1
+      - path: Hips/Slope_F/Slope1_F/Slope2_F
+        weight: 1
+      - path: Hips/Slope_L
+        weight: 1
+      - path: Hips/Slope_L/Slope1_L
+        weight: 1
+      - path: Hips/Slope_L/Slope1_L/Slope2_L
+        weight: 1
+      - path: Hips/Slope_R
+        weight: 1
+      - path: Hips/Slope_R/Slope1_R
+        weight: 1
+      - path: Hips/Slope_R/Slope1_R/Slope2_R
+        weight: 1
+      - path: orangeSlimy_Star
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 7.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

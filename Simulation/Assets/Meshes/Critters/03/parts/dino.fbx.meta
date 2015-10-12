@@ -1,0 +1,228 @@
+fileFormatVersion: 2
+guid: 6fb8619ef9c9c485e82f8c33514a7578
+timeCreated: 1444326797
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: _L_toe
+    100002: //RootNode
+    100004: head
+    100006: hips
+    100008: L_knee
+    100010: L_leg
+    100012: nose
+    100014: R_knee
+    100016: R_leg
+    100018: R_toe
+    100020: root
+    100022: Skeleton
+    100024: tale
+    100026: tale1
+    100028: tale2
+    100030: Tally
+    100032: dinoGeometry
+    400000: _L_toe
+    400002: //RootNode
+    400004: head
+    400006: hips
+    400008: L_knee
+    400010: L_leg
+    400012: nose
+    400014: R_knee
+    400016: R_leg
+    400018: R_toe
+    400020: root
+    400022: Skeleton
+    400024: tale
+    400026: tale1
+    400028: tale2
+    400030: Tally
+    400032: dinoGeometry
+    4300000: Tally
+    4300002: dinoGeometry
+    7400000: 03_idle
+    7400002: 03_walking
+    9500000: //RootNode
+    13700000: Tally
+    13700002: dinoGeometry
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: 03_idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Skeleton
+        weight: 1
+      - path: Skeleton/root
+        weight: 1
+      - path: Skeleton/root/head
+        weight: 1
+      - path: Skeleton/root/head/nose
+        weight: 1
+      - path: Skeleton/root/hips
+        weight: 1
+      - path: Skeleton/root/hips/L_leg
+        weight: 1
+      - path: Skeleton/root/hips/L_leg/L_knee
+        weight: 1
+      - path: Skeleton/root/hips/L_leg/L_knee/_L_toe
+        weight: 1
+      - path: Skeleton/root/hips/R_leg
+        weight: 1
+      - path: Skeleton/root/hips/R_leg/R_knee
+        weight: 1
+      - path: Skeleton/root/hips/R_leg/R_knee/R_toe
+        weight: 1
+      - path: Skeleton/root/hips/tale
+        weight: 1
+      - path: Skeleton/root/hips/tale/tale1
+        weight: 1
+      - path: Skeleton/root/hips/tale/tale1/tale2
+        weight: 1
+      - path: Tally
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: 03_walking
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: dinoGeometry
+        weight: 1
+      - path: Skeleton
+        weight: 1
+      - path: Skeleton/root
+        weight: 1
+      - path: Skeleton/root/head
+        weight: 1
+      - path: Skeleton/root/head/nose
+        weight: 1
+      - path: Skeleton/root/hips
+        weight: 1
+      - path: Skeleton/root/hips/L_leg
+        weight: 1
+      - path: Skeleton/root/hips/L_leg/L_knee
+        weight: 1
+      - path: Skeleton/root/hips/L_leg/L_knee/_L_toe
+        weight: 1
+      - path: Skeleton/root/hips/R_leg
+        weight: 1
+      - path: Skeleton/root/hips/R_leg/R_knee
+        weight: 1
+      - path: Skeleton/root/hips/R_leg/R_knee/R_toe
+        weight: 1
+      - path: Skeleton/root/hips/tale
+        weight: 1
+      - path: Skeleton/root/hips/tale/tale1
+        weight: 1
+      - path: Skeleton/root/hips/tale/tale1/tale2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,291 @@
+fileFormatVersion: 2
+guid: 5c716ca0b3ac9496bac13de268e3359d
+timeCreated: 1444324200
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Bally
+    100002: //RootNode
+    100004: BottomLip
+    100006: ikHandle1
+    100008: ikHandle2
+    100010: Jaw
+    100012: L_Ear1
+    100014: L_Ear2
+    100016: L_EarTip
+    100018: L_Head
+    100020: Mouth
+    100022: R_Ear1
+    100024: R_Ear2
+    100026: R_EarTip
+    100028: R_Head
+    100030: Root
+    100032: TopLip
+    400000: Bally
+    400002: //RootNode
+    400004: BottomLip
+    400006: ikHandle1
+    400008: ikHandle2
+    400010: Jaw
+    400012: L_Ear1
+    400014: L_Ear2
+    400016: L_EarTip
+    400018: L_Head
+    400020: Mouth
+    400022: R_Ear1
+    400024: R_Ear2
+    400026: R_EarTip
+    400028: R_Head
+    400030: Root
+    400032: TopLip
+    4300000: Bally
+    7400000: 01_eating
+    7400002: 01_walking
+    7400004: 01_scanning
+    9500000: //RootNode
+    13700000: Bally
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: 01_eating
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bally
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Head
+        weight: 1
+      - path: Root/L_Head/L_Ear1
+        weight: 1
+      - path: Root/L_Head/L_Ear1/L_Ear2
+        weight: 1
+      - path: Root/L_Head/L_Ear1/L_Ear2/L_EarTip
+        weight: 1
+      - path: Root/Mouth
+        weight: 1
+      - path: Root/Mouth/Jaw
+        weight: 1
+      - path: Root/Mouth/Jaw/BottomLip
+        weight: 1
+      - path: Root/Mouth/TopLip
+        weight: 1
+      - path: Root/R_Head
+        weight: 1
+      - path: Root/R_Head/R_Ear1
+        weight: 1
+      - path: Root/R_Head/R_Ear1/R_Ear2
+        weight: 1
+      - path: Root/R_Head/R_Ear1/R_Ear2/R_EarTip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: 01_walking
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bally
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Head
+        weight: 1
+      - path: Root/L_Head/L_Ear1
+        weight: 1
+      - path: Root/L_Head/L_Ear1/L_Ear2
+        weight: 1
+      - path: Root/L_Head/L_Ear1/L_Ear2/L_EarTip
+        weight: 1
+      - path: Root/Mouth
+        weight: 1
+      - path: Root/Mouth/Jaw
+        weight: 1
+      - path: Root/Mouth/Jaw/BottomLip
+        weight: 1
+      - path: Root/Mouth/TopLip
+        weight: 1
+      - path: Root/R_Head
+        weight: 1
+      - path: Root/R_Head/R_Ear1
+        weight: 1
+      - path: Root/R_Head/R_Ear1/R_Ear2
+        weight: 1
+      - path: Root/R_Head/R_Ear1/R_Ear2/R_EarTip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: 01_scanning
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bally
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Head
+        weight: 1
+      - path: Root/L_Head/L_Ear1
+        weight: 1
+      - path: Root/L_Head/L_Ear1/L_Ear2
+        weight: 1
+      - path: Root/L_Head/L_Ear1/L_Ear2/L_EarTip
+        weight: 1
+      - path: Root/Mouth
+        weight: 1
+      - path: Root/Mouth/Jaw
+        weight: 1
+      - path: Root/Mouth/Jaw/BottomLip
+        weight: 1
+      - path: Root/Mouth/TopLip
+        weight: 1
+      - path: Root/R_Head
+        weight: 1
+      - path: Root/R_Head/R_Ear1
+        weight: 1
+      - path: Root/R_Head/R_Ear1/R_Ear2
+        weight: 1
+      - path: Root/R_Head/R_Ear1/R_Ear2/R_EarTip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 5
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
