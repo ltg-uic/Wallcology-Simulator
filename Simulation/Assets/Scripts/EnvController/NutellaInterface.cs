@@ -33,9 +33,9 @@ public class NutellaInterface : MonoBehaviour {
         if (Input.GetButton("Fire1"))
         {
             DebugCritters();
-            for ( int i = 0; i < Random.Range(7,10); i++) {
-                KillCritter( Random.Range(0, 10) );
-            }
+            // for ( int i = 0; i < Random.Range(7,10); i++) {
+            //     KillCritter( Random.Range(0, 10) );
+            // }
         }
 
     }
@@ -94,25 +94,25 @@ public class NutellaInterface : MonoBehaviour {
         switch( id )
         {
             case 0:
-                DestroyCritter( BrickPoints, "0");
+                DestroyCritter( BrickPoints, "Herbivore", 0);
                 break;
             case 1:
-                DestroyCritter( PipePoints, "1");
+                DestroyCritter( PipePoints, "Predator", 1);
                 break;
             case 2:
-                DestroyCritter( GenPoints, "2");
+                DestroyCritter( GenPoints, "Herbivore", 2);
                 break;
             case 3:
-                DestroyCritter( BrickPoints, "3");
+                DestroyCritter( BrickPoints, "Predator", 3);
                 break;
             case 6:
-                DestroyCritter( PipePoints, "6");
+                DestroyCritter( PipePoints, "Herbivore", 6);
                 break;
             case 7:
-                DestroyCritter( GenPoints, "7");
+                DestroyCritter( GenPoints, "Herbivore", 7);
                 break;
             case 8:
-                DestroyCritter( GenPoints, "8");
+                DestroyCritter( GenPoints, "Predator", 8);
                 break;
             default:
                 break;
@@ -145,27 +145,31 @@ public class NutellaInterface : MonoBehaviour {
     }
 
     // Passes message to bug informing it is time to Die. Sets NavMesh Agents position to nearest exit point
-    private void DestroyCritter(Transform[] waypoints, string tagName)
+    private void DestroyCritter(Transform[] waypoints, string tagName, int id )
     {
         Debug.Log("DestroyCritter!! " + tagName);
-        GameObject Critter = GameObject.FindWithTag(tagName);
-        if ( Critter ) {
-            NavMeshAgent agent = Critter.GetComponent<NavMeshAgent>();
-            // agent.SetDestination(waypoints[index].position);
-            Transform cur = waypoints[0];
-            float min = Vector3.Distance(cur.position, agent.destination);
+        GameObject [] Critters = GameObject.FindGameObjectsWithTag(tagName);
 
-            foreach(Transform pt in waypoints) {
-                float distance =  Vector3.Distance(pt.position, agent.destination);
-                if( distance < min ) {  // distance between the center object and the enemy car
-                    cur = pt;
-                    min = distance;
+        StatePatternCritter critter;
+
+        foreach ( GameObject cc in Critters)
+        {
+            critter = cc.GetComponent<StatePatternCritter>();
+            if ( critter.ID == id ) {
+                // agent.SetDestination(waypoints[index].position);
+                Transform destination = waypoints[0];
+                float min = Vector3.Distance(destination.position, critter.navMeshAgent.destination);
+
+                foreach(Transform pt in waypoints) {
+                    float distance =  Vector3.Distance(pt.position, critter.navMeshAgent.destination);
+                    if( distance < min ) {  // distance between the point and the critter
+                        destination = pt;
+                        min = distance;
+                    }
                 }
-            }
-            agent.SetDestination(cur.position);
-            Critter cc = Critter.GetComponent<Critter>();
-            cc.timeToDie = true;
+                critter.navMeshAgent.SetDestination(destination.position);
 
+            }
         }
 
     }

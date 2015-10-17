@@ -22,6 +22,7 @@ public class StatePatternCritter : MonoBehaviour
 	[HideInInspector] public ICritterState currentState;
 	[HideInInspector] public WanderState wanderState;
     [HideInInspector] public IdleState idleState;
+    [HideInInspector] public ForageState forageState;
 	[HideInInspector] public NavMeshAgent navMeshAgent;
 
 

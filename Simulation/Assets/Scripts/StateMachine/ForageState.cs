@@ -1,36 +1,35 @@
 using UnityEngine;
+using System.Collections;
 
-public class IdleState: ICritterState
+public class ForageState: ICritterState
 {
     private readonly StatePatternCritter critter;
     Vector3 direction;
-    float idleTime;
-    float idleDuration;
+    float forageTime;
+    float forageDuration;
     float minWait = 30f;
     float maxWait = 60f;
 
 
-    public IdleState(StatePatternCritter activeCritter)
+    public ForageState(StatePatternCritter activeCritter)
     {
         critter = activeCritter;
         SetDurations();
     }
 
-    private void Idle()
+    private void Forage()
     {
-        idleTime += Time.deltaTime;
-
-        if ( idleTime >= idleDuration)
+        if ( Random.value < 0.25f )
         {
             ToWanderState();
         }
     }
 
-    public void UpdateState() {
+    public void UpdateState()
+    {
         Look();
-        Idle();
+        Forage();
     }
-
 
     public void OnTriggerEnter (Collider other)
     {
@@ -82,70 +81,38 @@ public class IdleState: ICritterState
         }
     }
 
-    public void ToWanderState()
+
+    public void HandlePredator( StatePatternCritter predator )
     {
-        // Debug.Log(" Its time to wander! " + critter.ID.ToString() );
-
-        idleTime = 0f;
-        critter.navMeshAgent.Resume();
-        critter.currentState = critter.wanderState;
-    }
-
-    public void ToIdleState() {
 
     }
 
-
-
-    public void HandlePredator( StatePatternCritter predator ) {
-        if ( critter.gameObject.CompareTag("Herbivore") )  // Are we a Herbivore?
-        {
-            foreach ( int predatorID in critter.predatorList )
-            {
-                if ( predator.ID == predatorID )
-                {
-                    Debug.Log( " RUUUUUNN!!! " + critter.ID.ToString() );
-                    break;
-                }
-            }
-        }
-    }
-
-    public void HandleHerbivore( StatePatternCritter herbivore ) {
-        if ( critter.gameObject.CompareTag("Predator") )  // Are we a Predator?
-        {
-            foreach ( int herbID in critter.preyList )
-            {
-                if ( herbivore.ID == herbID )
-                {
-                    Debug.Log( " DINNER!!! " + critter.ID.ToString() );
-                    break;
-                }
-            }
-        }
+    public void HandleHerbivore( StatePatternCritter herbivore )
+    {
 
     }
 
-    public void HandleResource( GameObject plant ) {
-        if ( critter.gameObject.CompareTag("Herbivore") )  // Are we a Herbivore?
-        {
-            Debug.Log( " Working on this one... " + critter.ID.ToString() );
-            // foreach ( int predatorID in critter.predatorList )
-            // {
-            //     if ( predator.ID == predatorID )
-            //     {
-            //         Debug.Log( " RUUUUUNN!!! " + critter.ID.ToString() );
-            //         break;
-            //     }
-            // }
-        }
-    }
+    public void HandleResource( GameObject plant )
+    {
 
+    }
 
     private void SetDurations()
     {
-        idleTime = 0;
-        idleDuration = Random.Range(minWait, maxWait);
+        forageTime = 0;
+        forageDuration = Random.Range(minWait, maxWait);
     }
+
+
+    public void ToWanderState()
+    {
+        critter.currentState = critter.wanderState;
+    }
+
+    public void ToIdleState()
+    {
+        critter.currentState = critter.idleState;
+    }
+
 
 }

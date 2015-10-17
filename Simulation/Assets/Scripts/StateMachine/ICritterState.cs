@@ -14,6 +14,8 @@ public interface ICritterState
 
     void ToIdleState();
 
+    void ToForageState();
+
     void HandlePredator( StatePatternCritter predator );
 
     void HandleHerbivore( StatePatternCritter herbivore );
