@@ -140,6 +140,7 @@ public class WanderState: ICritterState
     public void HandleResource( GameObject plant ) {
         if ( critter.gameObject.CompareTag("Herbivore") )  // Are we a Herbivore?
         {
+            ToForageState();
             Debug.Log( " Working on this one... " + critter.ID.ToString() );
             // foreach ( int predatorID in critter.predatorList )
             // {

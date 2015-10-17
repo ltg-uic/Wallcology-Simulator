@@ -91,9 +91,7 @@ public class IdleState: ICritterState
         critter.currentState = critter.wanderState;
     }
 
-    public void ToIdleState() {
-
-    }
+    public void ToIdleState() {  }
 
 
 

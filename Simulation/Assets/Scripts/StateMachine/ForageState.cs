@@ -45,9 +45,6 @@ public class ForageState: ICritterState
             Debug.Log( " We've run into a Herbivore: " + herbivore.ID.ToString() );
             HandleHerbivore(herbivore);
 
-        } else if ( other.gameObject.CompareTag( "Resource" ) ) {
-            Debug.Log( " We've run into a Bush: "+ other.gameObject.name );
-            HandleResource( other.gameObject );
         }
     }
 
@@ -71,12 +68,6 @@ public class ForageState: ICritterState
                 StatePatternCritter herbivore = sighted.GetComponent<StatePatternCritter>();
                 // Debug.Log( " We've spotted a herbivore: " + herbivore.ID.ToString() );
                 HandleHerbivore(herbivore);
-
-            } else if ( sighted.CompareTag("Resource") ) {
-
-                // Debug.Log( " We've spotted a Bush: "+ sighted.name );
-                HandleResource( sighted );
-
             }
         }
     }
@@ -106,6 +97,7 @@ public class ForageState: ICritterState
 
     public void ToWanderState()
     {
+        critter.navMeshAgent.Resume();
         critter.currentState = critter.wanderState;
     }
 
