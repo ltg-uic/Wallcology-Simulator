@@ -145,9 +145,11 @@ public class WanderState: ICritterState
             {
                 if ( plant.name.Contains( preyID.ToString() ) )
                 {
-                    critter.navMeshAgent.Stop();
-                    critter.navMeshAgent.SetDestination(plant.transform.position);
-                    ToForageState();
+                    if ( Random.value > 50f )
+                    {
+                        critter.navMeshAgent.Stop();
+                        ToForageState();
+                    }
                 }
             }
         }

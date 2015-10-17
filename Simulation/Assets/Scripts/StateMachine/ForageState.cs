@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+
+// Forage state is almost exclusively for Herbivores
+
 public class ForageState: ICritterState
 {
     private readonly StatePatternCritter critter;
@@ -39,14 +42,9 @@ public class ForageState: ICritterState
             Debug.Log( " We've run into a predator: " + predator.ID.ToString() );
             HandlePredator(predator);
 
-        } else if ( other.gameObject.CompareTag( "Herbivore" ) ) {
-
-            StatePatternCritter herbivore = other.gameObject.GetComponent<StatePatternCritter>();
-            Debug.Log( " We've run into a Herbivore: " + herbivore.ID.ToString() );
-            HandleHerbivore(herbivore);
-
         }
     }
+
 
     public void Look()
     {
@@ -69,6 +67,7 @@ public class ForageState: ICritterState
 
 
     public void HandlePredator( StatePatternCritter predator ) {
+
         if ( critter.gameObject.CompareTag("Herbivore") )  // Are we a Herbivore?
         {
             foreach ( int predatorID in critter.predatorList )

@@ -46,7 +46,7 @@ public class StatePatternCritter : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		currentState.UpdateState ();
+		currentState.UpdateState();
 	}
 
 

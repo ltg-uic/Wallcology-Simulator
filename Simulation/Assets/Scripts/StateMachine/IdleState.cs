@@ -46,9 +46,6 @@ public class IdleState: ICritterState
             Debug.Log( " We've run into a Herbivore: " + herbivore.ID.ToString() );
             HandleHerbivore(herbivore);
 
-        } else if ( other.gameObject.CompareTag( "Resource" ) ) {
-            Debug.Log( " We've run into a Bush: "+ other.gameObject.name );
-            HandleResource( other.gameObject );
         }
     }
 
@@ -74,26 +71,8 @@ public class IdleState: ICritterState
                 HandleHerbivore(herbivore);
 
             }
-            // else if ( sighted.CompareTag("Resource") ) {
-
-            //     // Debug.Log( " We've spotted a Bush: "+ sighted.name );
-            //     HandleResource( sighted );
-
-            // }
         }
     }
-
-    public void ToWanderState()
-    {
-        // Debug.Log(" Its time to wander! " + critter.ID.ToString() );
-
-        idleTime = 0f;
-        critter.navMeshAgent.Resume();
-        critter.currentState = critter.wanderState;
-    }
-
-    public void ToIdleState() {  }
-
 
 
     public void HandlePredator( StatePatternCritter predator ) {
@@ -125,25 +104,20 @@ public class IdleState: ICritterState
 
     }
 
-    public void HandleResource( GameObject plant ) {
-        if ( critter.gameObject.CompareTag("Herbivore") )  // Are we a Herbivore?
-        {
-            Debug.Log( " Working on this one... " + critter.ID.ToString() );
-            // foreach ( int predatorID in critter.predatorList )
-            // {
-            //     if ( predator.ID == predatorID )
-            //     {
-            //         Debug.Log( " RUUUUUNN!!! " + critter.ID.ToString() );
-            //         break;
-            //     }
-            // }
-        }
-    }
-
-    public void ToForageState()
+    public void ToWanderState()
     {
+        // Debug.Log(" Its time to wander! " + critter.ID.ToString() );
 
+        idleTime = 0f;
+        critter.navMeshAgent.Resume();
+        critter.currentState = critter.wanderState;
     }
+
+
+    public void ToIdleState() {  }
+    public void ToForageState() { }
+    public void HandleResource( GameObject plant ) { }
+
 
     private void SetDurations()
     {
