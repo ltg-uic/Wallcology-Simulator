@@ -89,6 +89,11 @@ public class IdleState: ICritterState
 
     }
 
+    public void HandlePredator( StatePatternCritter predator ) { }
+
+    public void HandleHerbivore( StatePatternCritter herbivore ) { }
+
+    public void HandleResource( GameObject plant ) { }
 
     private void SetDurations()
     {

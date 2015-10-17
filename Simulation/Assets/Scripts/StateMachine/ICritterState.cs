@@ -14,4 +14,10 @@ public interface ICritterState
 
     void ToIdleState();
 
+    void HandlePredator( StatePatternCritter predator );
+
+    void HandleHerbivore( StatePatternCritter herbivore );
+
+    void HandleResource( GameObject plant );
+
 }

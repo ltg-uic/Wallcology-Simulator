@@ -20,10 +20,11 @@ public class StatePatternCritter : MonoBehaviour
     public Vector3 offset = new Vector3 (0,.5f,0);
 
 	[HideInInspector] public ICritterState currentState;
-
 	[HideInInspector] public WanderState wanderState;
     [HideInInspector] public IdleState idleState;
 	[HideInInspector] public NavMeshAgent navMeshAgent;
+
+
 
 	private void Awake()
 	{
