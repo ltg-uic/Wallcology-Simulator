@@ -1,32 +1,24 @@
 using UnityEngine;
 
-public class WanderState: ICritterState
+public class IdleState: ICritterState
 {
     private readonly StatePatternCritter critter;
     Vector3 direction;
-    NavMeshHit hit;
-    int MeshArea;
-    float wanderDuration;
-    float wanderTime;
-    float minWait = 4f;
-    float maxWait = 10f;
+    float idleTime = 0f;
 
-    public WanderState(StatePatternCritter activeCritter)
+
+    public IdleState(StatePatternCritter activeCritter)
     {
         critter = activeCritter;
 
-        wanderTime = 0f;
-        wanderDuration = -1f;
-        MeshArea = 1 << NavMesh.GetNavMeshLayerFromName("Brick");
-
-        Debug.Log("" + critter.ID.ToString() + " I can walk on " + MeshArea.ToString() );
     }
 
-    public void UpdateState()
-    {
+
+    public void UpdateState() {
         Look();
-        Wander();
+        Idle();
     }
+
 
     public void OnTriggerEnter (Collider other) {
         if  ( other.gameObject.CompareTag( "Predator" ) ) {
@@ -44,25 +36,6 @@ public class WanderState: ICritterState
         }
     }
 
-    private void Wander()
-    {
-        wanderTime += Time.deltaTime;
-
-        if ( critter.navMeshAgent.remainingDistance <= critter.navMeshAgent.stoppingDistance && !critter.navMeshAgent.pathPending)
-        {
-            direction = Random.insideUnitSphere * critter.maxWalkDistance;
-            direction += critter.transform.position;
-
-            // Sample the provided Mesh Area and get the nearest point
-            NavMesh.SamplePosition( direction, out hit, Random.Range( 0f, critter.maxWalkDistance), MeshArea  );
-
-            Vector3 position = hit.position;
-
-            critter.navMeshAgent.SetDestination( hit.position );
-            Debug.Log (" Pick a point! " + critter.ID.ToString() + position);
-
-        }
-    }
 
     public void Look()
     {
@@ -92,10 +65,11 @@ public class WanderState: ICritterState
         }
     }
 
-    public void ToIdleState() {
-        critter.currentState = critter.idleState;
+
+    public void ToWanderState() {
+        critter.currentState = critter.wanderState;
     }
 
-    public void ToWanderState() {}
+    public void ToIdleState() {}
 
 }

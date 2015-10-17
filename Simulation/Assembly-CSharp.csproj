@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\EnvController\TextController.cs" />
      <Compile Include="Assets\Scripts\StandardControllers\MouseLook.cs" />
      <Compile Include="Assets\Scripts\StateMachine\ICritterState.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\IdleState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\StatePatternCritter.cs" />
      <Compile Include="Assets\Scripts\StateMachine\WanderState.cs" />
      <Compile Include="Assets\Scripts\moveObject.cs" />

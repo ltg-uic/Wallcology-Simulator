@@ -12,4 +12,6 @@ public interface ICritterState
 
 	void ToWanderState();
 
+    void ToIdleState();
+
 }
