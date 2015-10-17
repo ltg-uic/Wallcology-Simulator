@@ -23,6 +23,7 @@ public class StatePatternCritter : MonoBehaviour
 	[HideInInspector] public WanderState wanderState;
     [HideInInspector] public IdleState idleState;
     [HideInInspector] public ForageState forageState;
+    // [HideInInspector] public FlightState flightState;
 	[HideInInspector] public NavMeshAgent navMeshAgent;
 
 
@@ -31,7 +32,8 @@ public class StatePatternCritter : MonoBehaviour
 	{
         wanderState = new WanderState (this); // huntStart = new HuntState (this); May replace with this
         idleState = new IdleState (this); // huntStart = new HuntState (this); May replace with this
-        forageState = new ForageState(this);
+        forageState = new ForageState (this);
+        // flightState = new FlightState (this);
 		navMeshAgent = GetComponent<NavMeshAgent>();
 
 	}

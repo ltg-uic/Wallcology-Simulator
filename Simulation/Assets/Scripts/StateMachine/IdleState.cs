@@ -6,8 +6,8 @@ public class IdleState: ICritterState
     Vector3 direction;
     float idleTime;
     float idleDuration;
-    float minWait = 30f;
-    float maxWait = 60f;
+    float minWait = 5f;
+    float maxWait = 5f;
 
 
     public IdleState(StatePatternCritter activeCritter)
@@ -114,8 +114,11 @@ public class IdleState: ICritterState
     }
 
 
-    public void ToIdleState() {  }
-    public void ToForageState() { }
+    public void ToIdleState() {}
+    public void ToForageState() {}
+    // public void ToPursueState() {}
+    public void ToFlightState() {}
+
     public void HandleResource( GameObject plant ) { }
 
 

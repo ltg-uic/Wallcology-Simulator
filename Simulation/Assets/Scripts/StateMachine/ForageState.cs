@@ -96,13 +96,11 @@ public class ForageState: ICritterState
 
     }
 
-
     private void SetDurations()
     {
         forageTime = 0;
         forageDuration = Random.Range(minWait, maxWait);
     }
-
 
     public void ToWanderState()
     {
@@ -115,7 +113,9 @@ public class ForageState: ICritterState
         critter.currentState = critter.idleState;
     }
 
-    public void ToForageState() { }
+    public void ToForageState() {}
+    // public void ToPursueState() {}
+    public void ToFlightState() {}
 
     public void HandleResource( GameObject plant ) { }
 

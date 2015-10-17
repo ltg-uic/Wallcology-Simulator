@@ -8,8 +8,8 @@ public class WanderState: ICritterState
     int MeshArea;
     float wanderDuration;
     float wanderTime;
-    float minWait = 10f;
-    float maxWait = 20f;
+    float minWait = 5f;
+    float maxWait = 5f;
 
 
     public WanderState(StatePatternCritter activeCritter)
@@ -172,9 +172,9 @@ public class WanderState: ICritterState
         critter.currentState = critter.forageState;
     }
 
+    // public void ToPursueState() {}
     public void ToWanderState() {}
-
-
+    public void ToFlightState() {}
 
     private void SetDurations()
     {

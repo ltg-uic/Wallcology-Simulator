@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\EnvController\NutellaInterface.cs" />
      <Compile Include="Assets\Scripts\EnvController\TextController.cs" />
      <Compile Include="Assets\Scripts\StandardControllers\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\FlightState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\ForageState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\ICritterState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\IdleState.cs" />
@@ -64,6 +65,7 @@
      <None Include="Assets\Shaders\BackgroundAndCharacters\AngryInclude.cginc" />
      <None Include="Assets\Shaders\BackgroundAndCharacters\ReflectiveBackgroundArbitrary.shader" />
      <None Include="Assets\Shaders\BackgroundAndCharacters\Fallback.shader" />
+     <None Include="Assets\skybox\Shaders\SkyboxHDR.shader" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
