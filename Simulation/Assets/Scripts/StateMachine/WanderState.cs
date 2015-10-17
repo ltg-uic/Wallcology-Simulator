@@ -8,8 +8,8 @@ public class WanderState: ICritterState
     int MeshArea;
     float wanderDuration;
     float wanderTime;
-    float minWait = 5f;
-    float maxWait = 5f;
+    float minWait = 3f;
+    float maxWait = 8f;
 
 
     public WanderState(StatePatternCritter activeCritter)
@@ -45,8 +45,10 @@ public class WanderState: ICritterState
             HandleHerbivore(herbivore);
 
         } else if ( other.gameObject.CompareTag( "Resource" ) ) {
+
             Debug.Log( ""+critter.ID.ToString() + " We've run into a Bush: "+ other.gameObject.name );
-            HandleResource( other.gameObject );
+            HandleResource( other );
+
         }
     }
 
@@ -138,17 +140,20 @@ public class WanderState: ICritterState
 
     }
 
-    public void HandleResource( GameObject plant ) {
+    public void HandleResource( Collider plantColl ) {
+        GameObject plant = plantColl.gameObject;
         if ( critter.gameObject.CompareTag("Herbivore") )  // Are we a Herbivore?
         {
             foreach ( int preyID in critter.preyList )
             {
                 if ( plant.name.Contains( preyID.ToString() ) )
                 {
-                    if ( Random.value > 50f )
+                    if ( Random.value < .80f )
                     {
                         Debug.Log("" + critter.ID.ToString() + " Nomm nomm " + plant.name);
                         critter.navMeshAgent.Stop();
+                        Vector3 foragePoint = plantColl.ClosestPointOnBounds(critter.transform.position);
+                        critter.navMeshAgent.SetDestination(foragePoint);
                         ToForageState();
                     }
                 }

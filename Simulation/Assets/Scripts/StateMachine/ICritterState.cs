@@ -24,6 +24,6 @@ public interface ICritterState
 
     void HandleHerbivore( StatePatternCritter herbivore );
 
-    void HandleResource( GameObject plant );
+    void HandleResource( Collider plant );
 
 }

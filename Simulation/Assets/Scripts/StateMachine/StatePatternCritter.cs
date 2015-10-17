@@ -9,7 +9,7 @@ public class StatePatternCritter : MonoBehaviour
 	// Predators should have a smaller Vigilance, but are faster
     public int ID;    // 0-Flappy, 1-Bally, etc
     public int habitat; // 0-Pipe, 1-Gen, 2-Brick
-    public float maxWalkDistance = 200f;
+    public float maxWalkDistance = 5f;
 	public float searchingTurnSpeed = 120f;
 	public float idleDuration = 4f;
 	public float sightRange = 20f;

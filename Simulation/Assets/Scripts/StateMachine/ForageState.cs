@@ -22,9 +22,12 @@ public class ForageState: ICritterState
 
     private void Forage()
     {
-        if ( Random.value < 0.25f )
+        if  (critter.navMeshAgent.remainingDistance <= critter.navMeshAgent.stoppingDistance)
         {
-            ToWanderState();
+            if ( Random.value < 0.20f )
+            {
+                ToWanderState();
+            }
         }
     }
 
@@ -117,6 +120,6 @@ public class ForageState: ICritterState
     // public void ToPursueState() {}
     public void ToFlightState() {}
 
-    public void HandleResource( GameObject plant ) { }
+    public void HandleResource( Collider plant ) { }
 
 }
