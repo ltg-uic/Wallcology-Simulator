@@ -148,7 +148,7 @@ public class NutellaInterface : MonoBehaviour {
         int index = Random.Range(0, waypoints.Length-1);
         Vector3 position = waypoints[index].position;
         Debug.Log("InstantiateCritter ");
-        Debug.Log(position);
+        // Debug.Log(position);
         Instantiate(critter, position, waypoints[index].rotation);
         Application.ExternalCall("ProgressUpdate", "InstantiateCritter", true);
     }

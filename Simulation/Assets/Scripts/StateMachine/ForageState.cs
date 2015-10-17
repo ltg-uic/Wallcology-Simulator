@@ -10,8 +10,8 @@ public class ForageState: ICritterState
     Vector3 direction;
     float forageTime;
     float forageDuration;
-    float minWait = 30f;
-    float maxWait = 60f;
+    float minWait = 5f;
+    float maxWait = 10f;
 
 
     public ForageState(StatePatternCritter activeCritter)
@@ -22,12 +22,22 @@ public class ForageState: ICritterState
 
     private void Forage()
     {
+
         if  (critter.navMeshAgent.remainingDistance <= critter.navMeshAgent.stoppingDistance)
         {
-            if ( Random.value < 0.20f )
-            {
-                ToWanderState();
+            forageTime += Time.deltaTime;
+            if (forageTime >= forageDuration) {
+                float rand = Random.value;
+                Debug.Log("" + critter.ID.ToString() + " We be eating!! " + rand.ToString());
+                critter.navMeshAgent.Stop();
+
+                if ( rand < 0.2f )
+                {
+                    ToWanderState();
+                }
+
             }
+
         }
     }
 
@@ -107,6 +117,7 @@ public class ForageState: ICritterState
 
     public void ToWanderState()
     {
+        Debug.Log("Back to Wandering");
         critter.navMeshAgent.Resume();
         critter.currentState = critter.wanderState;
     }
