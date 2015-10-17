@@ -8,15 +8,14 @@ public class WanderState: ICritterState
     int MeshArea;
     float wanderDuration;
     float wanderTime;
-    float minWait = 4f;
-    float maxWait = 10f;
+    float minWait = 10f;
+    float maxWait = 20f;
 
     public WanderState(StatePatternCritter activeCritter)
     {
         critter = activeCritter;
 
-        wanderTime = 0f;
-        wanderDuration = -1f;
+        SetDurations();
         MeshArea = 1 << NavMesh.GetNavMeshLayerFromName("Brick");
 
         Debug.Log("" + critter.ID.ToString() + " I can walk on " + MeshArea.ToString() );
@@ -62,6 +61,11 @@ public class WanderState: ICritterState
             Debug.Log (" Pick a point! " + critter.ID.ToString() + position);
 
         }
+
+        if ( wanderTime >= wanderDuration )
+        {
+            ToIdleState();
+        }
     }
 
     public void Look()
@@ -93,9 +97,18 @@ public class WanderState: ICritterState
     }
 
     public void ToIdleState() {
+        Debug.Log( " Its Time to CHILL! " + critter.ID.ToString() );
+        SetDurations();
+        critter.navMeshAgent.Stop();
         critter.currentState = critter.idleState;
     }
 
     public void ToWanderState() {}
+
+    private void SetDurations()
+    {
+        wanderTime = 0;
+        wanderDuration = Random.Range(minWait, maxWait);
+    }
 
 }

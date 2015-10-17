@@ -4,13 +4,16 @@ public class IdleState: ICritterState
 {
     private readonly StatePatternCritter critter;
     Vector3 direction;
-    float idleTime = 0f;
+    float idleTime;
+    float idleDuration;
+    float minWait = 30f;
+    float maxWait = 60f;
 
 
     public IdleState(StatePatternCritter activeCritter)
     {
         critter = activeCritter;
-
+        SetDurations();
     }
 
 
@@ -24,18 +27,27 @@ public class IdleState: ICritterState
         if  ( other.gameObject.CompareTag( "Predator" ) ) {
 
             StatePatternCritter predator = other.gameObject.GetComponent<StatePatternCritter>();
-            Debug.Log( " We've struck a predator: " + predator.ID.ToString() );
+            Debug.Log( " A predator hit us!: " + predator.ID.ToString() );
 
         } else if ( other.gameObject.CompareTag( "Herbivore" ) ) {
 
             StatePatternCritter herbivore = other.gameObject.GetComponent<StatePatternCritter>();
-            Debug.Log( " We've struck a Herbivore: " + herbivore.ID.ToString() );
+            Debug.Log( " A Herbivore hit us!: " + herbivore.ID.ToString() );
 
         } else if ( other.gameObject.CompareTag( "Resource" ) ) {
-            Debug.Log( " We've struck a Bush: "+ other.gameObject.name );
+            Debug.Log( " We're stuck in a bush!: "+ other.gameObject.name );
         }
     }
 
+    private void Idle()
+    {
+        idleTime += Time.deltaTime;
+
+        if ( idleTime >= idleDuration)
+        {
+            ToWanderState();
+        }
+    }
 
     public void Look()
     {
@@ -49,27 +61,39 @@ public class IdleState: ICritterState
             if ( sighted.CompareTag("Predator") ) {
 
                 StatePatternCritter predator = sighted.GetComponent<StatePatternCritter>();
-                Debug.Log( " We've struck a predator: " + predator.ID.ToString() );
+                Debug.Log( " We've spotted a predator: " + predator.ID.ToString() );
 
             } else if ( sighted.CompareTag("Herbivore") ) {
 
                 StatePatternCritter herbivore = sighted.GetComponent<StatePatternCritter>();
-                Debug.Log( " We've struck a herbivore: " + herbivore.ID.ToString() );
+                Debug.Log( " We've spotted a herbivore: " + herbivore.ID.ToString() );
 
             } else if ( sighted.CompareTag("Resource") ) {
 
-                Debug.Log( " We've struck a Bush: "+ sighted.name );
+                Debug.Log( " We've spotted a Bush: "+ sighted.name );
 
             }
 
         }
     }
 
-
     public void ToWanderState() {
+        Debug.Log(" Its time to wander! " + critter.ID.ToString() );
+
+        idleTime = 0f;
+        critter.navMeshAgent.Resume();
         critter.currentState = critter.wanderState;
     }
 
-    public void ToIdleState() {}
+    public void ToIdleState() {
+
+    }
+
+
+    private void SetDurations()
+    {
+        idleTime = 0;
+        idleDuration = Random.Range(minWait, maxWait);
+    }
 
 }
