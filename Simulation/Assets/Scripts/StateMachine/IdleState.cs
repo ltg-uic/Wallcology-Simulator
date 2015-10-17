@@ -73,12 +73,13 @@ public class IdleState: ICritterState
                 // Debug.Log( " We've spotted a herbivore: " + herbivore.ID.ToString() );
                 HandleHerbivore(herbivore);
 
-            } else if ( sighted.CompareTag("Resource") ) {
-
-                // Debug.Log( " We've spotted a Bush: "+ sighted.name );
-                HandleResource( sighted );
-
             }
+            // else if ( sighted.CompareTag("Resource") ) {
+
+            //     // Debug.Log( " We've spotted a Bush: "+ sighted.name );
+            //     HandleResource( sighted );
+
+            // }
         }
     }
 
@@ -139,6 +140,10 @@ public class IdleState: ICritterState
         }
     }
 
+    public void ToForageState()
+    {
+
+    }
 
     private void SetDurations()
     {

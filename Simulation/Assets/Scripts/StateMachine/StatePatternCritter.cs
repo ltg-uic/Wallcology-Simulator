@@ -29,8 +29,9 @@ public class StatePatternCritter : MonoBehaviour
 
 	private void Awake()
 	{
-		wanderState = new WanderState (this); // huntStart = new HuntState (this); May replace with this
+        wanderState = new WanderState (this); // huntStart = new HuntState (this); May replace with this
         idleState = new IdleState (this); // huntStart = new HuntState (this); May replace with this
+        forageState = new ForageState(this);
 		navMeshAgent = GetComponent<NavMeshAgent>();
 
 	}

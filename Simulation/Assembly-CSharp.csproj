@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\EnvController\NutellaInterface.cs" />
      <Compile Include="Assets\Scripts\EnvController\TextController.cs" />
      <Compile Include="Assets\Scripts\StandardControllers\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\ForageState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\ICritterState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\IdleState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\StatePatternCritter.cs" />

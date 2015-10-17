@@ -63,30 +63,40 @@ public class ForageState: ICritterState
                 // Debug.Log( " We've spotted a predator: " + predator.ID.ToString() );
                 HandlePredator(predator);
 
-            } else if ( sighted.CompareTag("Herbivore") ) {
-
-                StatePatternCritter herbivore = sighted.GetComponent<StatePatternCritter>();
-                // Debug.Log( " We've spotted a herbivore: " + herbivore.ID.ToString() );
-                HandleHerbivore(herbivore);
             }
         }
     }
 
 
-    public void HandlePredator( StatePatternCritter predator )
-    {
+    public void HandlePredator( StatePatternCritter predator ) {
+        if ( critter.gameObject.CompareTag("Herbivore") )  // Are we a Herbivore?
+        {
+            foreach ( int predatorID in critter.predatorList )
+            {
+                if ( predator.ID == predatorID )
+                {
+                    Debug.Log( " RUUUUUNN!!! " + critter.ID.ToString() );
+                    break;
+                }
+            }
+        }
+    }
+
+    public void HandleHerbivore( StatePatternCritter herbivore ) {
+        if ( critter.gameObject.CompareTag("Predator") )  // Are we a Predator?
+        {
+            foreach ( int herbID in critter.preyList )
+            {
+                if ( herbivore.ID == herbID )
+                {
+                    Debug.Log( " DINNER!!! " + critter.ID.ToString() );
+                    break;
+                }
+            }
+        }
 
     }
 
-    public void HandleHerbivore( StatePatternCritter herbivore )
-    {
-
-    }
-
-    public void HandleResource( GameObject plant )
-    {
-
-    }
 
     private void SetDurations()
     {
@@ -106,5 +116,8 @@ public class ForageState: ICritterState
         critter.currentState = critter.idleState;
     }
 
+    public void ToForageState() { }
+
+    public void HandleResource( GameObject plant ) { }
 
 }
