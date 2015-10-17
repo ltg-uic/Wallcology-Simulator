@@ -12,15 +12,9 @@ public class NutellaInterface : MonoBehaviour {
     public GameObject Jumpy;
 
 
-    private Transform[] spawnPoints;
-    private Transform[] exitPoints;
-
-    private Transform[] spawnPointsPipe;
-    private Transform[] exitPointsPipe;
-
-    private Transform[] spawnPointsBrick;
-    private Transform[] exitPointsBrick;
-
+    private Transform[] GenPoints;
+    private Transform[] PipePoints;
+    private Transform[] BrickPoints;
 
 
 	// Use this for initialization
@@ -38,7 +32,10 @@ public class NutellaInterface : MonoBehaviour {
     {
         if (Input.GetButton("Fire1"))
         {
-            KillCritter( Random.Range(0, 10) );
+            DebugCritters();
+            for ( int i = 0; i < Random.Range(7,10); i++) {
+                KillCritter( Random.Range(0, 10) );
+            }
         }
 
     }
@@ -62,25 +59,25 @@ public class NutellaInterface : MonoBehaviour {
         switch( id )
         {
             case 0:
-                InstantiateCritter(spawnPoints, FlappyStripe);
+                InstantiateCritter(BrickPoints, FlappyStripe);
                 break;
             case 1:
-                InstantiateCritter(spawnPointsPipe, Bally);
+                InstantiateCritter(PipePoints, Bally);
                 break;
             case 2:
-                InstantiateCritter(spawnPoints, Slimy);
+                InstantiateCritter(GenPoints, Slimy);
                 break;
             case 3:
-                InstantiateCritter(spawnPointsBrick, Dino);
+                InstantiateCritter(BrickPoints, Dino);
                 break;
             case 6:
-                InstantiateCritter(spawnPointsPipe, Piston);
+                InstantiateCritter(PipePoints, Piston);
                 break;
             case 7:
-                InstantiateCritter(spawnPoints, FlappyRing);
+                InstantiateCritter(GenPoints, FlappyRing);
                 break;
             case 8:
-                InstantiateCritter(spawnPoints, Jumpy);
+                InstantiateCritter(GenPoints, Jumpy);
                 break;
             default:
                 Debug.Log("SpawnCritter DEFAULT" + id);
@@ -97,25 +94,25 @@ public class NutellaInterface : MonoBehaviour {
         switch( id )
         {
             case 0:
-                DestroyCritter( exitPoints, "0");
+                DestroyCritter( BrickPoints, "0");
                 break;
             case 1:
-                DestroyCritter( exitPointsPipe, "1");
+                DestroyCritter( PipePoints, "1");
                 break;
             case 2:
-                DestroyCritter( exitPoints, "2");
+                DestroyCritter( GenPoints, "2");
                 break;
             case 3:
-                DestroyCritter( exitPointsBrick, "3");
+                DestroyCritter( BrickPoints, "3");
                 break;
             case 6:
-                DestroyCritter( exitPointsPipe, "6");
+                DestroyCritter( PipePoints, "6");
                 break;
             case 7:
-                DestroyCritter( exitPoints, "7");
+                DestroyCritter( GenPoints, "7");
                 break;
             case 8:
-                DestroyCritter( exitPoints, "8");
+                DestroyCritter( GenPoints, "8");
                 break;
             default:
                 break;
@@ -125,16 +122,12 @@ public class NutellaInterface : MonoBehaviour {
     private void InitializeSpawnPoints() {
         Debug.Log("InitializeSpawnPoints");
         // Populate them
-        spawnPointsPipe = _SetUpPointArrays( GameObject.FindGameObjectsWithTag("SpawnPipe") );
-        spawnPointsBrick = _SetUpPointArrays( GameObject.FindGameObjectsWithTag("SpawnBrick") );
-
-        exitPointsPipe = _SetUpPointArrays( GameObject.FindGameObjectsWithTag("ExitPipe") );
-        exitPointsBrick = _SetUpPointArrays( GameObject.FindGameObjectsWithTag("ExitBrick") );
+        PipePoints = _SetUpPointArrays( GameObject.FindGameObjectsWithTag("Pipe") );
+        BrickPoints = _SetUpPointArrays( GameObject.FindGameObjectsWithTag("Brick") );
 
         // You have got to be kidding me....
-        spawnPoints = _join( spawnPointsPipe, spawnPointsBrick );
-        spawnPoints = _join( spawnPointsPipe, spawnPointsBrick );
-        exitPoints = _join( exitPointsPipe,exitPointsBrick );
+        GenPoints = _join( PipePoints, BrickPoints );
+        GenPoints = _join( PipePoints, BrickPoints );
 
         Debug.Log("InitializeSpawnPoints---DONE");
         Application.ExternalCall("ProgressUpdate", "InitializeSpawnPoints", true);
@@ -170,7 +163,7 @@ public class NutellaInterface : MonoBehaviour {
                 }
             }
             agent.SetDestination(cur.position);
-            CritterControl cc = Critter.GetComponent<CritterControl>();
+            Critter cc = Critter.GetComponent<Critter>();
             cc.timeToDie = true;
 
         }

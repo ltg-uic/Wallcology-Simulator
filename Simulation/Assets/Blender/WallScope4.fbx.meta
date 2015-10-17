@@ -1,0 +1,253 @@
+fileFormatVersion: 2
+guid: 7d27c8cbf07684b58869a327f24ca8fc
+timeCreated: 1444903286
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: allPipes:allPipes:pTorus33 ribbedPipes2 PipelSet wall_4_
+    100002: group7 MetalPipes polySurface644
+    100004: group7 MetalPipes polySurface664
+    100006: group7 MetalPipes polySurface677
+    100008: group7 MetalPipes polySurface685
+    100010: group7 MetalPipes polySurface686
+    100012: PipelSet wall_4_ PipeSet1 polySurface684
+    100014: PipelSet wall_4_ polySurface641 PipeSet1
+    100016: PipelSet wall_4_ pTorus33 ribbedPipes
+    100018: PipelSet wall_4_ ribbedPipes pCylinder10
+    100020: PipelSet wall_4_ ribbedPipes pCylinder17
+    100022: PipelSet wall_4_ ribbedPipes pCylinder18
+    100024: PipelSet wall_4_ ribbedPipes pCylinder19
+    100026: PipelSet wall_4_ ribbedPipes pCylinder20
+    100028: PipelSet wall_4_ ribbedPipes pCylinder5
+    100030: PipelSet wall_4_ ribbedPipes pCylinder6
+    100032: PipelSet wall_4_ ribbedPipes pCylinder7
+    100034: PipelSet wall_4_ ribbedPipes pCylinder8
+    100036: PipelSet wall_4_ ribbedPipes pCylinder9
+    100038: PipelSet wall_4_ ribbedPipes polySurface5
+    100040: PipelSet wall_4_ ribbedPipes polySurface6
+    100042: PipelSet wall_4_ ribbedPipes pTorus34
+    100044: polySurface687 group7 MetalPipes
+    100046: ribbedPipes2 PipelSet wall_4_ allPipes:allPipes:pCylinder17
+    100048: ribbedPipes2 PipelSet wall_4_ allPipes:allPipes:polySurface5
+    100050: ribbedPipes2 PipelSet wall_4_ pCylinder10
+    100052: ribbedPipes2 PipelSet wall_4_ pCylinder17
+    100054: ribbedPipes2 PipelSet wall_4_ pCylinder18
+    100056: ribbedPipes2 PipelSet wall_4_ pCylinder19
+    100058: ribbedPipes2 PipelSet wall_4_ pCylinder5
+    100060: ribbedPipes2 PipelSet wall_4_ pCylinder6
+    100062: ribbedPipes2 PipelSet wall_4_ pCylinder7
+    100064: ribbedPipes2 PipelSet wall_4_ pCylinder8
+    100066: ribbedPipes2 PipelSet wall_4_ pCylinder9
+    100068: ribbedPipes2 PipelSet wall_4_ polySurface5
+    100070: ribbedPipes2 PipelSet wall_4_ pTorus33
+    100072: //RootNode
+    400000: allPipes:allPipes:pTorus33 ribbedPipes2 PipelSet wall_4_
+    400002: group7 MetalPipes polySurface644
+    400004: group7 MetalPipes polySurface664
+    400006: group7 MetalPipes polySurface677
+    400008: group7 MetalPipes polySurface685
+    400010: group7 MetalPipes polySurface686
+    400012: PipelSet wall_4_ PipeSet1 polySurface684
+    400014: PipelSet wall_4_ polySurface641 PipeSet1
+    400016: PipelSet wall_4_ pTorus33 ribbedPipes
+    400018: PipelSet wall_4_ ribbedPipes pCylinder10
+    400020: PipelSet wall_4_ ribbedPipes pCylinder17
+    400022: PipelSet wall_4_ ribbedPipes pCylinder18
+    400024: PipelSet wall_4_ ribbedPipes pCylinder19
+    400026: PipelSet wall_4_ ribbedPipes pCylinder20
+    400028: PipelSet wall_4_ ribbedPipes pCylinder5
+    400030: PipelSet wall_4_ ribbedPipes pCylinder6
+    400032: PipelSet wall_4_ ribbedPipes pCylinder7
+    400034: PipelSet wall_4_ ribbedPipes pCylinder8
+    400036: PipelSet wall_4_ ribbedPipes pCylinder9
+    400038: PipelSet wall_4_ ribbedPipes polySurface5
+    400040: PipelSet wall_4_ ribbedPipes polySurface6
+    400042: PipelSet wall_4_ ribbedPipes pTorus34
+    400044: polySurface687 group7 MetalPipes
+    400046: ribbedPipes2 PipelSet wall_4_ allPipes:allPipes:pCylinder17
+    400048: ribbedPipes2 PipelSet wall_4_ allPipes:allPipes:polySurface5
+    400050: ribbedPipes2 PipelSet wall_4_ pCylinder10
+    400052: ribbedPipes2 PipelSet wall_4_ pCylinder17
+    400054: ribbedPipes2 PipelSet wall_4_ pCylinder18
+    400056: ribbedPipes2 PipelSet wall_4_ pCylinder19
+    400058: ribbedPipes2 PipelSet wall_4_ pCylinder5
+    400060: ribbedPipes2 PipelSet wall_4_ pCylinder6
+    400062: ribbedPipes2 PipelSet wall_4_ pCylinder7
+    400064: ribbedPipes2 PipelSet wall_4_ pCylinder8
+    400066: ribbedPipes2 PipelSet wall_4_ pCylinder9
+    400068: ribbedPipes2 PipelSet wall_4_ polySurface5
+    400070: ribbedPipes2 PipelSet wall_4_ pTorus33
+    400072: //RootNode
+    2300000: allPipes:allPipes:pTorus33 ribbedPipes2 PipelSet wall_4_
+    2300002: group7 MetalPipes polySurface644
+    2300004: group7 MetalPipes polySurface664
+    2300006: group7 MetalPipes polySurface677
+    2300008: group7 MetalPipes polySurface685
+    2300010: group7 MetalPipes polySurface686
+    2300012: PipelSet wall_4_ PipeSet1 polySurface684
+    2300014: PipelSet wall_4_ polySurface641 PipeSet1
+    2300016: PipelSet wall_4_ pTorus33 ribbedPipes
+    2300018: PipelSet wall_4_ ribbedPipes pCylinder10
+    2300020: PipelSet wall_4_ ribbedPipes pCylinder17
+    2300022: PipelSet wall_4_ ribbedPipes pCylinder18
+    2300024: PipelSet wall_4_ ribbedPipes pCylinder19
+    2300026: PipelSet wall_4_ ribbedPipes pCylinder20
+    2300028: PipelSet wall_4_ ribbedPipes pCylinder5
+    2300030: PipelSet wall_4_ ribbedPipes pCylinder6
+    2300032: PipelSet wall_4_ ribbedPipes pCylinder7
+    2300034: PipelSet wall_4_ ribbedPipes pCylinder8
+    2300036: PipelSet wall_4_ ribbedPipes pCylinder9
+    2300038: PipelSet wall_4_ ribbedPipes polySurface5
+    2300040: PipelSet wall_4_ ribbedPipes polySurface6
+    2300042: PipelSet wall_4_ ribbedPipes pTorus34
+    2300044: polySurface687 group7 MetalPipes
+    2300046: ribbedPipes2 PipelSet wall_4_ allPipes:allPipes:pCylinder17
+    2300048: ribbedPipes2 PipelSet wall_4_ allPipes:allPipes:polySurface5
+    2300050: ribbedPipes2 PipelSet wall_4_ pCylinder10
+    2300052: ribbedPipes2 PipelSet wall_4_ pCylinder17
+    2300054: ribbedPipes2 PipelSet wall_4_ pCylinder18
+    2300056: ribbedPipes2 PipelSet wall_4_ pCylinder19
+    2300058: ribbedPipes2 PipelSet wall_4_ pCylinder5
+    2300060: ribbedPipes2 PipelSet wall_4_ pCylinder6
+    2300062: ribbedPipes2 PipelSet wall_4_ pCylinder7
+    2300064: ribbedPipes2 PipelSet wall_4_ pCylinder8
+    2300066: ribbedPipes2 PipelSet wall_4_ pCylinder9
+    2300068: ribbedPipes2 PipelSet wall_4_ polySurface5
+    2300070: ribbedPipes2 PipelSet wall_4_ pTorus33
+    3300000: allPipes:allPipes:pTorus33 ribbedPipes2 PipelSet wall_4_
+    3300002: group7 MetalPipes polySurface644
+    3300004: group7 MetalPipes polySurface664
+    3300006: group7 MetalPipes polySurface677
+    3300008: group7 MetalPipes polySurface685
+    3300010: group7 MetalPipes polySurface686
+    3300012: PipelSet wall_4_ PipeSet1 polySurface684
+    3300014: PipelSet wall_4_ polySurface641 PipeSet1
+    3300016: PipelSet wall_4_ pTorus33 ribbedPipes
+    3300018: PipelSet wall_4_ ribbedPipes pCylinder10
+    3300020: PipelSet wall_4_ ribbedPipes pCylinder17
+    3300022: PipelSet wall_4_ ribbedPipes pCylinder18
+    3300024: PipelSet wall_4_ ribbedPipes pCylinder19
+    3300026: PipelSet wall_4_ ribbedPipes pCylinder20
+    3300028: PipelSet wall_4_ ribbedPipes pCylinder5
+    3300030: PipelSet wall_4_ ribbedPipes pCylinder6
+    3300032: PipelSet wall_4_ ribbedPipes pCylinder7
+    3300034: PipelSet wall_4_ ribbedPipes pCylinder8
+    3300036: PipelSet wall_4_ ribbedPipes pCylinder9
+    3300038: PipelSet wall_4_ ribbedPipes polySurface5
+    3300040: PipelSet wall_4_ ribbedPipes polySurface6
+    3300042: PipelSet wall_4_ ribbedPipes pTorus34
+    3300044: polySurface687 group7 MetalPipes
+    3300046: ribbedPipes2 PipelSet wall_4_ allPipes:allPipes:pCylinder17
+    3300048: ribbedPipes2 PipelSet wall_4_ allPipes:allPipes:polySurface5
+    3300050: ribbedPipes2 PipelSet wall_4_ pCylinder10
+    3300052: ribbedPipes2 PipelSet wall_4_ pCylinder17
+    3300054: ribbedPipes2 PipelSet wall_4_ pCylinder18
+    3300056: ribbedPipes2 PipelSet wall_4_ pCylinder19
+    3300058: ribbedPipes2 PipelSet wall_4_ pCylinder5
+    3300060: ribbedPipes2 PipelSet wall_4_ pCylinder6
+    3300062: ribbedPipes2 PipelSet wall_4_ pCylinder7
+    3300064: ribbedPipes2 PipelSet wall_4_ pCylinder8
+    3300066: ribbedPipes2 PipelSet wall_4_ pCylinder9
+    3300068: ribbedPipes2 PipelSet wall_4_ polySurface5
+    3300070: ribbedPipes2 PipelSet wall_4_ pTorus33
+    4300000: PipelSet wall_4_ polySurface641 PipeSet1
+    4300002: PipelSet wall_4_ ribbedPipes pCylinder20
+    4300004: ribbedPipes2 PipelSet wall_4_ pCylinder17
+    4300006: PipelSet wall_4_ ribbedPipes pTorus34
+    4300008: allPipes:allPipes:pTorus33 ribbedPipes2 PipelSet wall_4_
+    4300010: ribbedPipes2 PipelSet wall_4_ allPipes:allPipes:pCylinder17
+    4300012: ribbedPipes2 PipelSet wall_4_ allPipes:allPipes:polySurface5
+    4300014: ribbedPipes2 PipelSet wall_4_ pCylinder7
+    4300016: ribbedPipes2 PipelSet wall_4_ pCylinder19
+    4300018: PipelSet wall_4_ ribbedPipes polySurface6
+    4300020: ribbedPipes2 PipelSet wall_4_ pCylinder10
+    4300022: PipelSet wall_4_ ribbedPipes pCylinder7
+    4300024: polySurface687 group7 MetalPipes
+    4300026: PipelSet wall_4_ ribbedPipes polySurface5
+    4300028: PipelSet wall_4_ ribbedPipes pCylinder5
+    4300030: PipelSet wall_4_ pTorus33 ribbedPipes
+    4300032: group7 MetalPipes polySurface685
+    4300034: ribbedPipes2 PipelSet wall_4_ pCylinder8
+    4300036: group7 MetalPipes polySurface664
+    4300038: ribbedPipes2 PipelSet wall_4_ pCylinder6
+    4300040: PipelSet wall_4_ ribbedPipes pCylinder19
+    4300042: group7 MetalPipes polySurface644
+    4300044: PipelSet wall_4_ ribbedPipes pCylinder8
+    4300046: ribbedPipes2 PipelSet wall_4_ pCylinder9
+    4300048: PipelSet wall_4_ ribbedPipes pCylinder10
+    4300050: ribbedPipes2 PipelSet wall_4_ polySurface5
+    4300052: PipelSet wall_4_ PipeSet1 polySurface684
+    4300054: PipelSet wall_4_ ribbedPipes pCylinder6
+    4300056: PipelSet wall_4_ ribbedPipes pCylinder17
+    4300058: PipelSet wall_4_ ribbedPipes pCylinder9
+    4300060: PipelSet wall_4_ ribbedPipes pCylinder18
+    4300062: group7 MetalPipes polySurface677
+    4300064: ribbedPipes2 PipelSet wall_4_ pCylinder18
+    4300066: ribbedPipes2 PipelSet wall_4_ pCylinder5
+    4300068: ribbedPipes2 PipelSet wall_4_ pTorus33
+    4300070: group7 MetalPipes polySurface686
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
