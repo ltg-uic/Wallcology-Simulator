@@ -8,6 +8,8 @@ public interface ICritterState
 
 	void OnTriggerEnter (Collider other);
 
+    void Look();
+
 	void ToWanderState();
 
 }
