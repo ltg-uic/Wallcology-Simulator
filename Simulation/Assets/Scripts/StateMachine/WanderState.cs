@@ -35,17 +35,17 @@ public class WanderState: ICritterState
         if  ( other.gameObject.CompareTag( "Predator" ) ) {
 
             StatePatternCritter predator = other.gameObject.GetComponent<StatePatternCritter>();
-            Debug.Log( " We've run into a predator: " + predator.ID.ToString() );
+            Debug.Log( ""+critter.ID.ToString() + " We've run into a predator: " + predator.ID.ToString() );
             HandlePredator(predator);
 
         } else if ( other.gameObject.CompareTag( "Herbivore" ) ) {
 
             StatePatternCritter herbivore = other.gameObject.GetComponent<StatePatternCritter>();
-            Debug.Log( " We've run into a Herbivore: " + herbivore.ID.ToString() );
+            Debug.Log( ""+critter.ID.ToString() + " We've run into a Herbivore: " + herbivore.ID.ToString() );
             HandleHerbivore(herbivore);
 
         } else if ( other.gameObject.CompareTag( "Resource" ) ) {
-            Debug.Log( " We've run into a Bush: "+ other.gameObject.name );
+            Debug.Log( ""+critter.ID.ToString() + " We've run into a Bush: "+ other.gameObject.name );
             HandleResource( other.gameObject );
         }
     }
@@ -63,13 +63,13 @@ public class WanderState: ICritterState
             if ( sighted.CompareTag("Predator") ) {
 
                 StatePatternCritter predator = sighted.GetComponent<StatePatternCritter>();
-                // Debug.Log( " We've spotted a predator: " + predator.ID.ToString() );
+                Debug.Log( ""+critter.ID.ToString() + " We've spotted a predator: " + predator.ID.ToString() );
                 HandlePredator(predator);
 
             } else if ( sighted.CompareTag("Herbivore") ) {
 
                 StatePatternCritter herbivore = sighted.GetComponent<StatePatternCritter>();
-                // Debug.Log( " We've spotted a herbivore: " + herbivore.ID.ToString() );
+                Debug.Log( ""+critter.ID.ToString() + " We've spotted a herbivore: " + herbivore.ID.ToString() );
                 HandleHerbivore(herbivore);
 
             }
@@ -116,7 +116,7 @@ public class WanderState: ICritterState
             {
                 if ( predator.ID == predatorID )
                 {
-                    Debug.Log( " RUUUUUNN!!! " + critter.ID.ToString() );
+                    Debug.Log( "" + critter.ID.ToString() + " RUUUUUNN!!! " + predator.ID.ToString() );
                     break;
                 }
             }
@@ -130,7 +130,7 @@ public class WanderState: ICritterState
             {
                 if ( herbivore.ID == herbID )
                 {
-                    Debug.Log( " DINNER!!! " + critter.ID.ToString() );
+                    Debug.Log( "" + critter.ID.ToString() + " DINNER!!! " + herbivore.ID.ToString() );
                     break;
                 }
             }
@@ -147,6 +147,7 @@ public class WanderState: ICritterState
                 {
                     if ( Random.value > 50f )
                     {
+                        Debug.Log("" + critter.ID.ToString() + " Nomm nomm " + plant.name);
                         critter.navMeshAgent.Stop();
                         ToForageState();
                     }
@@ -159,6 +160,7 @@ public class WanderState: ICritterState
     public void ToIdleState()
     {
         SetDurations();
+        Debug.Log( " Stopping!! " + critter.ID.ToString());
         critter.navMeshAgent.Stop();
         critter.currentState = critter.idleState;
     }

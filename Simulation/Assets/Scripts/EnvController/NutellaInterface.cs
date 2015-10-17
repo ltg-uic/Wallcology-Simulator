@@ -59,24 +59,31 @@ public class NutellaInterface : MonoBehaviour {
         switch( id )
         {
             case 0:
+                Debug.Log("Lets make a FlappyStripe");
                 InstantiateCritter(BrickPoints, FlappyStripe);
                 break;
             case 1:
+                Debug.Log("Lets make a Bally");
                 InstantiateCritter(PipePoints, Bally);
                 break;
             case 2:
+                Debug.Log("Lets make a Slimy");
                 InstantiateCritter(GenPoints, Slimy);
                 break;
             case 3:
+                Debug.Log("Lets make a Dino");
                 InstantiateCritter(BrickPoints, Dino);
                 break;
             case 6:
+                Debug.Log("Lets make a Piston");
                 InstantiateCritter(PipePoints, Piston);
                 break;
             case 7:
+                Debug.Log("Lets make a FlappyRing");
                 InstantiateCritter(GenPoints, FlappyRing);
                 break;
             case 8:
+                Debug.Log("Lets make a Jumpy");
                 InstantiateCritter(GenPoints, Jumpy);
                 break;
             default:
@@ -138,9 +145,11 @@ public class NutellaInterface : MonoBehaviour {
     // Instatiates a given Critter positioned at a random location provided
     private void InstantiateCritter(Transform[] waypoints, GameObject critter)
     {
-        Debug.Log("InstantiateCritter");
-        int index = Random.Range(0, waypoints.Length);
-        Instantiate(critter, waypoints[index].position, waypoints[index].rotation);
+        int index = Random.Range(0, waypoints.Length-1);
+        Vector3 position = waypoints[index].position;
+        Debug.Log("InstantiateCritter ");
+        Debug.Log(position);
+        Instantiate(critter, position, waypoints[index].rotation);
         Application.ExternalCall("ProgressUpdate", "InstantiateCritter", true);
     }
 
