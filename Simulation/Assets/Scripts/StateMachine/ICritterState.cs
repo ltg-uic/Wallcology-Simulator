@@ -16,14 +16,14 @@ public interface ICritterState
 
     void ToForageState();
 
-    // void ToPursueState();
+    void ToPursuitState(StatePatternCritter prey);
 
-    void ToFlightState();
+    void ToFlightState(StatePatternCritter predator);
 
-    void HandlePredator( StatePatternCritter predator );
+    // void HandlePredator( StatePatternCritter predator );
 
-    void HandleHerbivore( StatePatternCritter herbivore );
+    // void HandleHerbivore( StatePatternCritter herbivore );
 
-    void HandleResource( Collider plant );
+    // void HandleResource( Collider plant );
 
 }

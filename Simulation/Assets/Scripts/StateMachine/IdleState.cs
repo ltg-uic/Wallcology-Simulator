@@ -6,8 +6,8 @@ public class IdleState: ICritterState
     Vector3 direction;
     float idleTime;
     float idleDuration;
-    float minWait = 3f;
-    float maxWait = 8f;
+    float minWait = 5f;
+    float maxWait = 10f;
 
 
     public IdleState(StatePatternCritter activeCritter)
@@ -16,15 +16,6 @@ public class IdleState: ICritterState
         SetDurations();
     }
 
-    private void Idle()
-    {
-        idleTime += Time.deltaTime;
-
-        if ( idleTime >= idleDuration)
-        {
-            ToWanderState();
-        }
-    }
 
     public void UpdateState() {
         Look();
@@ -37,13 +28,13 @@ public class IdleState: ICritterState
         if  ( other.gameObject.CompareTag( "Predator" ) ) {
 
             StatePatternCritter predator = other.gameObject.GetComponent<StatePatternCritter>();
-            Debug.Log( " We've run into a predator: " + predator.ID.ToString() );
+            // Debug.Log( " We've run into a predator: " + predator.ID.ToString() );
             HandlePredator(predator);
 
         } else if ( other.gameObject.CompareTag( "Herbivore" ) ) {
 
             StatePatternCritter herbivore = other.gameObject.GetComponent<StatePatternCritter>();
-            Debug.Log( " We've run into a Herbivore: " + herbivore.ID.ToString() );
+            // Debug.Log( " We've run into a Herbivore: " + herbivore.ID.ToString() );
             HandleHerbivore(herbivore);
 
         }
@@ -82,8 +73,8 @@ public class IdleState: ICritterState
             {
                 if ( predator.ID == predatorID )
                 {
-                    Debug.Log( " RUUUUUNN!!! " + critter.ID.ToString() );
-                    break;
+                    // Debug.Log( "IdleState " + critter.ID.ToString() + " RUUUUUNN!!! " + predator.ID.ToString() );
+                    ToFlightState(predator);
                 }
             }
         }
@@ -96,7 +87,8 @@ public class IdleState: ICritterState
             {
                 if ( herbivore.ID == herbID )
                 {
-                    Debug.Log( " DINNER!!! " + critter.ID.ToString() );
+                    // Debug.Log( " DINNER!!! " + critter.ID.ToString() );
+                    if (Random.value < 0.5) {}   // This is where we will initiate chase
                     break;
                 }
             }
@@ -108,16 +100,35 @@ public class IdleState: ICritterState
     {
         // Debug.Log(" Its time to wander! " + critter.ID.ToString() );
 
-        idleTime = 0f;
+        SetDurations();
         critter.navMeshAgent.Resume();
         critter.currentState = critter.wanderState;
     }
 
 
     public void ToIdleState() {}
-    public void ToForageState() {}
+
+    public void ToForageState()
+    {
+        SetDurations();
+        critter.currentState = critter.forageState;
+    }
+
+
     // public void ToPursueState() {}
-    public void ToFlightState() {}
+    public void ToFlightState(StatePatternCritter predator)
+    {
+        SetDurations();
+        critter.enemy = predator;
+        critter.currentState = critter.flightState;
+    }
+
+
+    public void ToPursuitState(StatePatternCritter prey)
+    {
+        critter.currentState = critter.pursuitState;
+    }
+
 
     public void HandleResource( Collider plant ) { }
 
@@ -126,6 +137,17 @@ public class IdleState: ICritterState
     {
         idleTime = 0;
         idleDuration = Random.Range(minWait, maxWait);
+    }
+
+    private void Idle()
+    {
+        critter.meshRendererFlag.material.color = Color.yellow;
+        idleTime += Time.deltaTime;
+
+        if ( idleTime >= idleDuration)
+        {
+            ToWanderState();
+        }
     }
 
 }

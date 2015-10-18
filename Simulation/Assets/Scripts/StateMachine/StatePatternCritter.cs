@@ -11,20 +11,25 @@ public class StatePatternCritter : MonoBehaviour
     public int habitat; // 0-Pipe, 1-Gen, 2-Brick
     public float maxWalkDistance = 5f;
 	public float searchingTurnSpeed = 120f;
-	public float idleDuration = 4f;
 	public float sightRange = 20f;
 	public Transform eyes;
     public int [] predatorList;
     public int [] preyList;
+    public MeshRenderer meshRendererFlag;
 
     public Vector3 offset = new Vector3 (0,.5f,0);
 
+    [HideInInspector] public Color color = Color.clear;
 	[HideInInspector] public ICritterState currentState;
 	[HideInInspector] public WanderState wanderState;
     [HideInInspector] public IdleState idleState;
     [HideInInspector] public ForageState forageState;
-    // [HideInInspector] public FlightState flightState;
+    [HideInInspector] public FlightState flightState;
+    [HideInInspector] public PursuitState pursuitState;
 	[HideInInspector] public NavMeshAgent navMeshAgent;
+
+    [HideInInspector] public StatePatternCritter enemy;
+    [HideInInspector] public GameObject prey;
 
 
 
@@ -33,7 +38,8 @@ public class StatePatternCritter : MonoBehaviour
         wanderState = new WanderState (this); // huntStart = new HuntState (this); May replace with this
         idleState = new IdleState (this); // huntStart = new HuntState (this); May replace with this
         forageState = new ForageState (this);
-        // flightState = new FlightState (this);
+        flightState = new FlightState (this);
+        pursuitState = new PursuitState (this);
 		navMeshAgent = GetComponent<NavMeshAgent>();
 
 	}
@@ -48,7 +54,7 @@ public class StatePatternCritter : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-        Debug.Log(currentState);
+        // Debug.Log("" + ID.ToString() + " " + currentState);
 		currentState.UpdateState();
 	}
 

@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\StateMachine\ForageState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\ICritterState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\IdleState.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\PursuitState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\StatePatternCritter.cs" />
      <Compile Include="Assets\Scripts\StateMachine\WanderState.cs" />
      <Compile Include="Assets\Scripts\moveObject.cs" />
