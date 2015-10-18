@@ -12,7 +12,6 @@ public class WanderState: ICritterState
     float maxWait = 10f;
     float fleeingDistance = 10f;
 
-
     public WanderState(StatePatternCritter activeCritter)
     {
         critter = activeCritter;
@@ -117,8 +116,10 @@ public class WanderState: ICritterState
             {
                 if ( herbivore.ID == herbID )
                 {
-                    ToPursuitState(herbivore);
-                    break;
+                    if (Random.value < 0.1) {
+                        ToPursuitState(herbivore);
+                        break;
+                    }   // This is where we will initiate chase;
                 }
             }
         }
@@ -167,16 +168,16 @@ public class WanderState: ICritterState
 
     public void ToFlightState(StatePatternCritter predator) {
         SetDurations();
-        critter.enemy = predator;
-        critter.enemy.meshRendererFlag.material.color = Color.red;
+        critter.predator = predator;
+        critter.predator.meshRendererFlag.material.color = Color.red;
         critter.currentState = critter.flightState;
     }
 
     public void ToPursuitState(StatePatternCritter prey)
     {
         SetDurations();
+        critter.prey = prey;
         critter.currentState = critter.pursuitState;
-        critter.prey = prey.gameObject;
     }
 
     private void SetDurations()

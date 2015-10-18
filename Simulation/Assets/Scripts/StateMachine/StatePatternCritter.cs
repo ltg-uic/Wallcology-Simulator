@@ -9,9 +9,9 @@ public class StatePatternCritter : MonoBehaviour
 	// Predators should have a smaller Vigilance, but are faster
     public int ID;    // 0-Flappy, 1-Bally, etc
     public int habitat; // 0-Pipe, 1-Gen, 2-Brick
-    public float maxWalkDistance = 5f;
+    public float maxWalkDistance;
 	public float searchingTurnSpeed = 120f;
-	public float sightRange = 20f;
+	public float sightRange;
 	public Transform eyes;
     public int [] predatorList;
     public int [] preyList;
@@ -28,8 +28,8 @@ public class StatePatternCritter : MonoBehaviour
     [HideInInspector] public PursuitState pursuitState;
 	[HideInInspector] public NavMeshAgent navMeshAgent;
 
-    [HideInInspector] public StatePatternCritter enemy;
-    [HideInInspector] public GameObject prey;
+    [HideInInspector] public StatePatternCritter predator;
+    [HideInInspector] public StatePatternCritter prey;
 
 
 

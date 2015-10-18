@@ -116,7 +116,7 @@ public class ForageState: ICritterState
     public void ToFlightState(StatePatternCritter predator)
     {
         SetDurations();
-        critter.enemy = predator;
+        critter.predator = predator;
         critter.currentState = critter.flightState;
 
     }

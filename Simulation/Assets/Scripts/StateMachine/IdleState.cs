@@ -88,8 +88,10 @@ public class IdleState: ICritterState
                 if ( herbivore.ID == herbID )
                 {
                     // Debug.Log( " DINNER!!! " + critter.ID.ToString() );
-                    if (Random.value < 0.5) {}   // This is where we will initiate chase
-                    break;
+                    if (Random.value < 0.1) {
+                        ToPursuitState(herbivore);
+                        break;
+                    }   // This is where we will initiate chase;
                 }
             }
         }
@@ -115,17 +117,17 @@ public class IdleState: ICritterState
     }
 
 
-    // public void ToPursueState() {}
     public void ToFlightState(StatePatternCritter predator)
     {
         SetDurations();
-        critter.enemy = predator;
+        critter.predator = predator;
         critter.currentState = critter.flightState;
     }
 
 
     public void ToPursuitState(StatePatternCritter prey)
     {
+        critter.prey = prey;
         critter.currentState = critter.pursuitState;
     }
 
