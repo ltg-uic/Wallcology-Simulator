@@ -17,9 +17,9 @@ public class WanderState: ICritterState
         critter = activeCritter;
 
         SetDurations();
-        MeshArea = 1 << NavMesh.GetNavMeshLayerFromName("Brick");
+        MeshArea = NavMesh.GetAreaFromName("Brick") * 4; //MeshArea = 1 << NavMesh.GetNavMeshLayerFromName("Brick");
 
-        Debug.Log("" + critter.ID.ToString() + " I can walk on " + MeshArea.ToString() );
+        // Debug.Log("" + critter.ID.ToString() + " I can walk on " + MeshArea.ToString() );
     }
 
 
@@ -52,6 +52,8 @@ public class WanderState: ICritterState
 
         }
     }
+
+    public void OnTriggerStay(Collider other) {}
 
 
     public void Look()
@@ -93,7 +95,7 @@ public class WanderState: ICritterState
                 // Debug.Log( "\tMatch? " + predator.ID.ToString() );
                 if ( predator.ID == predatorID )
                 {
-                    Debug.Log( source + " WS " + critter.ID.ToString() + " RUUUUUNN!!! " + predator.ID.ToString() );
+                    // Debug.Log( source + " WS " + critter.ID.ToString() + " RUUUUUNN!!! " + predator.ID.ToString() );
                     direction = (predator.transform.position - critter.transform.position).normalized;
 
                     direction += critter.transform.position * fleeingDistance;
@@ -199,8 +201,6 @@ public class WanderState: ICritterState
 
             // Sample the provided Mesh Area and get the nearest point
             NavMesh.SamplePosition( direction, out hit, Random.Range( 0f, critter.maxWalkDistance), MeshArea  );
-
-            Vector3 position = hit.position;
 
             critter.navMeshAgent.SetDestination( hit.position );
             // Debug.Log (" Pick a point! " + critter.ID.ToString() + position);

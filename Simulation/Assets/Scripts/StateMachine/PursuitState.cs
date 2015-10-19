@@ -15,7 +15,7 @@ public class PursuitState: ICritterState
     public PursuitState(StatePatternCritter activeCritter)
     {
         critter = activeCritter;
-        MeshArea = 1 << NavMesh.GetNavMeshLayerFromName("Brick");
+        MeshArea = NavMesh.GetAreaFromName("Brick") * 4; // MeshArea = 1 << NavMesh.GetNavMeshLayerFromName("Brick");
         // NavMesh.GetAreaFromName("Brick")
     }
 
@@ -29,12 +29,13 @@ public class PursuitState: ICritterState
     {
        if ( hit.gameObject.CompareTag("Herbivore") )
         {
-            Debug.Log("Triggered! " + critter.ID.ToString() + " Ive target acquired!");
+            // Debug.Log("Triggered! " + critter.ID.ToString() + " Ive target acquired!");
             StatePatternCritter prey = hit.gameObject.GetComponent<StatePatternCritter>();
             critter.prey = prey;
         }
     }
 
+    public void OnTriggerStay(Collider other) {}
 
     public void Look()
     {
@@ -44,15 +45,15 @@ public class PursuitState: ICritterState
         {
             if ( hit.collider.CompareTag("Herbivore") )
             {
-                Debug.Log("Look! " + critter.ID.ToString() + " Target Acquired!");
+                // Debug.Log("Look! " + critter.ID.ToString() + " Target Acquired!");
                 StatePatternCritter prey = hit.collider.gameObject.GetComponent<StatePatternCritter>();
                 critter.prey = prey;
             }
-            else
-            {
-                Debug.Log("" + critter.ID.ToString() + " Ive lost sight of him! " + hit.collider.tag);
-                // ToIdleState();
-            }
+            // else
+            // {
+            //     Debug.Log("" + critter.ID.ToString() + " Ive lost sight of him! " + hit.collider.tag);
+            //     // ToIdleState();
+            // }
         }
     }
 
@@ -82,45 +83,43 @@ public class PursuitState: ICritterState
     public void ToPursuitState(StatePatternCritter prey) {}  // Already pursuing you fool!
 
 
-    private void SetToAvoid( )
-    {
-        Debug.Log(""+ critter.ID.ToString() + "RUUUUUNN!!!! " + critter.predator.ID.ToString());
-        // direction = (critter.predator.transform.position - critter.transform.position).normalized;
-        direction = (critter.transform.position - critter.predator.transform.position).normalized;
-        Vector3 destination = critter.transform.position + direction * fleeingDistance;
-
-        // Sample the provided Mesh Area and get the nearest point
-        NavMesh.SamplePosition( destination, out hit, Random.Range( 0f, critter.maxWalkDistance), MeshArea  );
-
-        critter.navMeshAgent.SetDestination( hit.position );
-    }
-
-
     private void Pursue()
     {
         if (critter.prey != null)
         {
-            Debug.Log("In Pursuit of " + critter.prey.gameObject.GetComponent<StatePatternCritter>().ID.ToString() + " !!!");
+            // Debug.Log("In Pursuit of " + critter.prey.gameObject.GetComponent<StatePatternCritter>().ID.ToString() + " !!!");
             critter.meshRendererFlag.material.color = Color.red;
             NavMesh.SamplePosition( critter.prey.transform.position, out hit, Random.Range( 0f, critter.maxWalkDistance), MeshArea  );
             critter.navMeshAgent.SetDestination(hit.position);
             critter.navMeshAgent.Resume();
 
             float distance = Vector3.Distance(critter.transform.position, critter.prey.transform.position);
+            Debug.Log("" + critter.ID + " is " + distance.ToString() + " from " + critter.prey.ID.ToString() + "");
 
-            if ( distance < 1f )
+            float killZone;
+
+            if  ( (critter.prey.ID == 6) || (critter.ID == 3 && critter.prey.ID == 2))
+            {
+                killZone = 0.40f;
+            }
+            else
+            {
+                killZone = 0.35f;
+            }
+
+            if ( distance <= killZone )
             {
                 GameObject prey = critter.prey.gameObject;
                 critter.prey = null;
 
                 // prey.GetComponent<NavMeshAgent>().Stop();
-                Debug.Log("Kill IT!!!");
+                // Debug.Log("Kill IT!!!");
                 Object.Destroy(prey);
 
                 ToIdleState();
             } else if ( distance >= fleeingDistance )
             {
-                Debug.Log("Target Out of Range");
+                // Debug.Log("Target Out of Range");
                 ToIdleState();
             }
         } else {

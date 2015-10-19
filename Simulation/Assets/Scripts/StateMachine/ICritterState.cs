@@ -8,6 +8,8 @@ public interface ICritterState
 
 	void OnTriggerEnter (Collider other);
 
+    void OnTriggerStay(Collider other);
+
     void Look();
 
 	void ToWanderState();
@@ -19,11 +21,5 @@ public interface ICritterState
     void ToPursuitState(StatePatternCritter prey);
 
     void ToFlightState(StatePatternCritter predator);
-
-    // void HandlePredator( StatePatternCritter predator );
-
-    // void HandleHerbivore( StatePatternCritter herbivore );
-
-    // void HandleResource( Collider plant );
 
 }

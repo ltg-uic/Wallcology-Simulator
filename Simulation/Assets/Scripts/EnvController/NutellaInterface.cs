@@ -30,13 +30,13 @@ public class NutellaInterface : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButton("Fire1"))
-        {
-            DebugCritters();
+        // if (Input.GetButton("Fire1"))
+        // {
+            // DebugCritters();
             // for ( int i = 0; i < Random.Range(7,10); i++) {
             //     KillCritter( Random.Range(0, 10) );
             // }
-        }
+        // }
 
     }
 
@@ -133,7 +133,6 @@ public class NutellaInterface : MonoBehaviour {
         BrickPoints = _SetUpPointArrays( GameObject.FindGameObjectsWithTag("Brick") );
 
         // You have got to be kidding me....
-        GenPoints = _join( PipePoints, BrickPoints );
         GenPoints = _join( PipePoints, BrickPoints );
 
         Debug.Log("InitializeSpawnPoints---DONE");

@@ -29,15 +29,20 @@ public class ForageState: ICritterState
     // Keep aware of predators
     public void OnTriggerEnter (Collider other)
     {
+        if  ( other.gameObject.CompareTag( "Resource" ) ) {
+            ;
+        }
+
         if  ( other.gameObject.CompareTag( "Predator" ) ) {
 
             StatePatternCritter predator = other.gameObject.GetComponent<StatePatternCritter>();
-            Debug.Log("" + critter.ID.ToString() + " We've run into a predator: " + predator.ID.ToString() );
+            // Debug.Log("" + critter.ID.ToString() + " We've run into a predator: " + predator.ID.ToString() );
             HandlePredator(predator);
 
         }
     }
 
+    public void OnTriggerStay(Collider other) {}
 
     // Watch for predators
     public void Look()
@@ -68,31 +73,12 @@ public class ForageState: ICritterState
             {
                 if ( predator.ID == predatorID )
                 {
-                    Debug.Log( "ForageState " + critter.ID.ToString() + " RUUUUUNN!!! " + predator.ID.ToString() );
+                    // Debug.Log( "ForageState " + critter.ID.ToString() + " RUUUUUNN!!! " + predator.ID.ToString() );
                     ToFlightState(predator);
                 }
             }
         }
     }
-
-    public void HandleHerbivore( StatePatternCritter herbivore ) {
-        if ( critter.gameObject.CompareTag("Predator") )  // Are we a Predator?
-        {
-            foreach ( int herbID in critter.preyList )
-            {
-                if ( herbivore.ID == herbID )
-                {
-                    Debug.Log( " DINNER!!! " + critter.ID.ToString() );
-                    break;
-                }
-            }
-        }
-
-    }
-
-
-    public void HandleResource( Collider plant ) { }
-
 
     private void SetDurations()
     {

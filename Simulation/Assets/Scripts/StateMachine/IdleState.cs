@@ -40,6 +40,8 @@ public class IdleState: ICritterState
         }
     }
 
+    public void OnTriggerStay(Collider other) {}
+
     public void Look()
     {
         RaycastHit hit;

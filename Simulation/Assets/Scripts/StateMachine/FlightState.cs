@@ -5,7 +5,7 @@ public class FlightState: ICritterState
 {
     private readonly StatePatternCritter critter;
     NavMeshHit hit;
-    Vector3 direction;
+    // Vector3 direction;
     Vector3 destination;
     float fleeingDistance = 5f;
     int MeshArea;
@@ -14,7 +14,8 @@ public class FlightState: ICritterState
     public FlightState(StatePatternCritter activeCritter)
     {
         critter = activeCritter;
-        MeshArea = 1 << NavMesh.GetNavMeshLayerFromName("Brick");
+        MeshArea = NavMesh.GetAreaFromName("Brick") * 4;// 1 << NavMesh.GetNavMeshLayerFromName("Brick");
+
     }
 
     public void UpdateState()
@@ -34,6 +35,21 @@ public class FlightState: ICritterState
         }
     }
 
+    public void OnTriggerStay (Collider other)
+    {
+        if  ( other.gameObject.CompareTag( "Predator" ) ) {
+
+            StatePatternCritter predator = other.gameObject.GetComponent<StatePatternCritter>();
+            // Debug.Log( ""+critter.ID.ToString() + " We've run into a predator: " + predator.ID.ToString() );
+
+            if ( predator == critter.predator ) {
+                HandlePredator(predator);
+            }
+
+
+        }
+    }
+
 
     public void Look() {}
 
@@ -47,23 +63,19 @@ public class FlightState: ICritterState
                 {
                     critter.predator = predator;
 
-                    Debug.Log( "FlightState " + critter.ID.ToString() + " RUUUUUNN!!! " + predator.ID.ToString() );
-                    direction = (predator.transform.position - critter.transform.position).normalized;
+                    // Debug.Log( "FlightState " + critter.ID.ToString() + " RUUUUUNN!!! " + predator.ID.ToString() );
+                    Vector3 direction = (critter.transform.position - critter.predator.transform.position).normalized;
 
-                    direction += critter.transform.position * fleeingDistance;
+                    Vector3 destination = critter.transform.position + direction * fleeingDistance;
 
                     // Sample the provided Mesh Area and get the nearest point
-                    NavMesh.SamplePosition( direction, out hit, Random.Range( 0f, critter.maxWalkDistance), MeshArea  );
+                    NavMesh.SamplePosition( destination, out hit, Random.Range( 0f, critter.maxWalkDistance), MeshArea  );
 
                     critter.navMeshAgent.SetDestination( hit.position );
                 }
             }
         }
     }
-
-    public void HandleHerbivore( StatePatternCritter herbivore ) {}
-
-    public void HandleResource( Collider plant ) {}
 
 
     public void ToWanderState()
@@ -90,9 +102,9 @@ public class FlightState: ICritterState
     private void SetToAvoid( )
     {
         // Debug.Log(""+ critter.ID.ToString() + "RUUUUUNN!!!! " + critter.predator.ID.ToString());
-        direction = (critter.transform.position - critter.predator.transform.position).normalized;
+        Vector3 direction = (critter.transform.position - critter.predator.transform.position).normalized;
 
-        destination = critter.transform.position + direction * fleeingDistance;
+        Vector3 destination = critter.transform.position + direction * fleeingDistance;
 
         // Sample the provided Mesh Area and get the nearest point
         NavMesh.SamplePosition( destination, out hit, Random.Range( 0f, critter.maxWalkDistance), MeshArea  );
@@ -108,7 +120,7 @@ public class FlightState: ICritterState
 
         if ( Vector3.Distance(critter.transform.position, critter.predator.transform.position) > fleeingDistance )
         {
-            Debug.Log("PHEW!! " + critter.ID.ToString());
+            // Debug.Log("PHEW!! " + critter.ID.ToString());
             ToWanderState();
 
         }

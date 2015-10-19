@@ -58,6 +58,11 @@ public class StatePatternCritter : MonoBehaviour
 		currentState.UpdateState();
 	}
 
+    private void OnTriggerStay(Collider other)
+    {
+        currentState.OnTriggerStay (other);
+    }
+
 
 	private void OnTriggerEnter(Collider other)
 	{
