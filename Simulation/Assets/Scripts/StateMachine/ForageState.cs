@@ -107,6 +107,15 @@ public class ForageState: ICritterState
 
     }
 
+    public void ToExitState()
+    {
+        critter.prey = null;
+        critter.currentState = critter.exitState;
+    }
+
+
+    public void ToEnterState() {}
+
     public void ToPursuitState(StatePatternCritter prey) { }
 
     public void ToForageState() {}
@@ -116,7 +125,7 @@ public class ForageState: ICritterState
     private void Forage()
     {
         // Wait until weve reached boundary
-        critter.meshRendererFlag.material.color = Color.magenta;
+        // critter.meshRendererFlag.material.color = Color.magenta;
         if  (critter.navMeshAgent.remainingDistance <= critter.navMeshAgent.stoppingDistance)
         {
             // Keep track of time at feeding site

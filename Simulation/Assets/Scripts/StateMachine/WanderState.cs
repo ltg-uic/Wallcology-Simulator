@@ -118,7 +118,7 @@ public class WanderState: ICritterState
             {
                 if ( herbivore.ID == herbID )
                 {
-                    if (Random.value < 0.1) {
+                    if (Random.value < 0.01) {
                         ToPursuitState(herbivore);
                         break;
                     }   // This is where we will initiate chase;
@@ -153,7 +153,10 @@ public class WanderState: ICritterState
         }
     }
 
-    public void ToWanderState() {}
+    public void ToWanderState()
+    {
+        critter.currentState = critter.wanderState;
+    }
 
     public void ToIdleState()
     {
@@ -171,7 +174,7 @@ public class WanderState: ICritterState
     public void ToFlightState(StatePatternCritter predator) {
         SetDurations();
         critter.predator = predator;
-        critter.predator.meshRendererFlag.material.color = Color.red;
+        // critter.predator.meshRendererFlag.material.color = Color.red;
         critter.currentState = critter.flightState;
     }
 
@@ -181,6 +184,14 @@ public class WanderState: ICritterState
         critter.prey = prey;
         critter.currentState = critter.pursuitState;
     }
+
+    public void ToExitState()
+    {
+        critter.prey = null;
+        critter.currentState = critter.exitState;
+    }
+
+    public void ToEnterState() {}
 
     private void SetDurations()
     {
@@ -192,7 +203,7 @@ public class WanderState: ICritterState
     private void Wander()
     {
         wanderTime += Time.deltaTime;
-        critter.meshRendererFlag.material.color = Color.cyan;
+        // critter.meshRendererFlag.material.color = Color.cyan;
 
         if ( critter.navMeshAgent.remainingDistance <= critter.navMeshAgent.stoppingDistance && !critter.navMeshAgent.pathPending)
         {

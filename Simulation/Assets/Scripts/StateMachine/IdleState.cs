@@ -90,7 +90,7 @@ public class IdleState: ICritterState
                 if ( herbivore.ID == herbID )
                 {
                     // Debug.Log( " DINNER!!! " + critter.ID.ToString() );
-                    if (Random.value < 0.1) {
+                    if (Random.value < 0.01) {
                         ToPursuitState(herbivore);
                         break;
                     }   // This is where we will initiate chase;
@@ -133,6 +133,13 @@ public class IdleState: ICritterState
         critter.currentState = critter.pursuitState;
     }
 
+    public void ToExitState()
+    {
+        critter.prey = null;
+        critter.currentState = critter.exitState;
+    }
+
+    public void ToEnterState() {}
 
     public void HandleResource( Collider plant ) { }
 
@@ -145,7 +152,7 @@ public class IdleState: ICritterState
 
     private void Idle()
     {
-        critter.meshRendererFlag.material.color = Color.yellow;
+        // critter.meshRendererFlag.material.color = Color.yellow;
         idleTime += Time.deltaTime;
 
         if ( idleTime >= idleDuration)

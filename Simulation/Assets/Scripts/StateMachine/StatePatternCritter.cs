@@ -15,7 +15,8 @@ public class StatePatternCritter : MonoBehaviour
 	public Transform eyes;
     public int [] predatorList;
     public int [] preyList;
-    public MeshRenderer meshRendererFlag;
+    [HideInInspector] public float navMeshRadius;
+    // public MeshRenderer meshRendererFlag;
 
     public Vector3 offset = new Vector3 (0,.5f,0);
 
@@ -26,6 +27,8 @@ public class StatePatternCritter : MonoBehaviour
     [HideInInspector] public ForageState forageState;
     [HideInInspector] public FlightState flightState;
     [HideInInspector] public PursuitState pursuitState;
+    [HideInInspector] public ExitState exitState;
+    [HideInInspector] public EnterState enterState;
 	[HideInInspector] public NavMeshAgent navMeshAgent;
 
     [HideInInspector] public StatePatternCritter predator;
@@ -40,14 +43,17 @@ public class StatePatternCritter : MonoBehaviour
         forageState = new ForageState (this);
         flightState = new FlightState (this);
         pursuitState = new PursuitState (this);
+        exitState = new ExitState (this);
+        enterState = new EnterState (this);
 		navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshRadius = navMeshAgent.radius;
 
 	}
 
 	// Use this for initialization
 	void Start ()
 	{
-		currentState = wanderState;
+		currentState = enterState;
 	}
 
 

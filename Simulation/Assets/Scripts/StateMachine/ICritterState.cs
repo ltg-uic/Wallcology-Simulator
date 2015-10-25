@@ -22,4 +22,8 @@ public interface ICritterState
 
     void ToFlightState(StatePatternCritter predator);
 
+    void ToExitState();
+
+    void ToEnterState();
+
 }

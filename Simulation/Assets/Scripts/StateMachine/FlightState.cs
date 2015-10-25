@@ -93,8 +93,15 @@ public class FlightState: ICritterState
         critter.currentState = critter.forageState;
     }
 
-    public void ToFlightState(StatePatternCritter predator) {}
+    public void ToExitState()
+    {
+        critter.prey = null;
+        critter.currentState = critter.exitState;
+    }
 
+    public void ToEnterState() {}
+
+    public void ToFlightState(StatePatternCritter predator) {}
 
     public void ToPursuitState(StatePatternCritter prey) { }
 
@@ -102,7 +109,7 @@ public class FlightState: ICritterState
     private void SetToAvoid( )
     {
         // Debug.Log(""+ critter.ID.ToString() + "RUUUUUNN!!!! " + critter.predator.ID.ToString());
-        Vector3 direction = (critter.transform.position - critter.predator.transform.position).normalized;
+        Vector3 direction = (critter.predator.transform.position - critter.transform.position).normalized;
 
         Vector3 destination = critter.transform.position + direction * fleeingDistance;
 
@@ -115,7 +122,16 @@ public class FlightState: ICritterState
 
     private void Flee()
     {
-        critter.meshRendererFlag.material.color = Color.red;
+        // critter.meshRendererFlag.material.color = Color.red;
+
+        // Make sure the Predator being tracked is not set to Die
+        if (critter.predator.currentState == critter.predator.exitState)
+        {
+            critter.predator = null;
+            ToWanderState();
+        }
+
+
         SetToAvoid();
 
         if ( Vector3.Distance(critter.transform.position, critter.predator.transform.position) > fleeingDistance )

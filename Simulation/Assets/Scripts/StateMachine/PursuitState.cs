@@ -10,13 +10,15 @@ public class PursuitState: ICritterState
     int MeshArea;
     float pursuitTime;
     float pursuitDuration;
-
+    float killZone;
 
     public PursuitState(StatePatternCritter activeCritter)
     {
         critter = activeCritter;
         MeshArea = NavMesh.GetAreaFromName("Brick") * 4; // MeshArea = 1 << NavMesh.GetNavMeshLayerFromName("Brick");
         // NavMesh.GetAreaFromName("Brick")
+        // Debug.Log( " navMeshRadius is " + critter.navMeshAgent.radius.ToString());
+        killZone = critter.navMeshRadius * 0.5f;
     }
 
     public void UpdateState()
@@ -49,11 +51,6 @@ public class PursuitState: ICritterState
                 StatePatternCritter prey = hit.collider.gameObject.GetComponent<StatePatternCritter>();
                 critter.prey = prey;
             }
-            // else
-            // {
-            //     Debug.Log("" + critter.ID.ToString() + " Ive lost sight of him! " + hit.collider.tag);
-            //     // ToIdleState();
-            // }
         }
     }
 
@@ -78,17 +75,26 @@ public class PursuitState: ICritterState
         critter.currentState = critter.forageState;
     }
 
+    public void ToExitState()
+    {
+        critter.prey = null;
+        critter.currentState = critter.exitState;
+    }
+
+    public void ToEnterState() {}
+
     public void ToFlightState(StatePatternCritter predator) {}  // We are predators, we do not flee!
 
     public void ToPursuitState(StatePatternCritter prey) {}  // Already pursuing you fool!
 
 
+
     private void Pursue()
     {
-        if (critter.prey != null)
+        if ( critter.prey != null && critter.prey.currentState != critter.prey.exitState )
         {
             // Debug.Log("In Pursuit of " + critter.prey.gameObject.GetComponent<StatePatternCritter>().ID.ToString() + " !!!");
-            critter.meshRendererFlag.material.color = Color.red;
+            // critter.meshRendererFlag.material.color = Color.red;
             NavMesh.SamplePosition( critter.prey.transform.position, out hit, Random.Range( 0f, critter.maxWalkDistance), MeshArea  );
             critter.navMeshAgent.SetDestination(hit.position);
             critter.navMeshAgent.Resume();
@@ -96,25 +102,39 @@ public class PursuitState: ICritterState
             float distance = Vector3.Distance(critter.transform.position, critter.prey.transform.position);
             Debug.Log("" + critter.ID + " is " + distance.ToString() + " from " + critter.prey.ID.ToString() + "");
 
-            float killZone;
+            float attackRange = ((critter.navMeshAgent.radius * critter.transform.localScale.x) + (critter.prey.navMeshAgent.radius * critter.prey.transform.localScale.x)) * 2f;
+            Debug.Log("attackRange is " + attackRange.ToString() + " " + critter.prey.navMeshAgent.radius.ToString() );
+            Debug.Log("killzone is " + killZone.ToString() + " " + critter.prey.navMeshAgent.radius.ToString() );
 
-            if  ( (critter.prey.ID == 6) || (critter.ID == 3 && critter.prey.ID == 2))
+            // if  ( (critter.prey.ID == 6) || (critter.ID == 3 && critter.prey.ID == 2))
+            // {
+            //     killZone = 0.40f;
+            // }
+            // else
+            // {
+            //     killZone = 0.35f;
+            // }
+
+            if (distance <= attackRange )
             {
-                killZone = 0.40f;
-            }
-            else
-            {
-                killZone = 0.35f;
+                critter.prey.navMeshAgent.Stop();
+                critter.prey.navMeshAgent.radius = 0.01f;
+                critter.navMeshAgent.radius = 0.01f;
             }
 
-            if ( distance <= killZone )
+
+            // float killZone = attackRange * 0.5f;
+            if ( distance <= 0.35f )
             {
                 GameObject prey = critter.prey.gameObject;
+                int ID = critter.prey.ID;
                 critter.prey = null;
 
-                // prey.GetComponent<NavMeshAgent>().Stop();
-                // Debug.Log("Kill IT!!!");
                 Object.Destroy(prey);
+                critter.navMeshAgent.radius = critter.navMeshRadius;
+
+                // Call App.js to instantiate recently offed critter
+                Application.ExternalCall("StablizePopulation", ID );
 
                 ToIdleState();
             } else if ( distance >= fleeingDistance )

@@ -32,23 +32,54 @@ public class NutellaInterface : MonoBehaviour {
     {
         // if (Input.GetButton("Fire1"))
         // {
-            // DebugCritters();
-            // for ( int i = 0; i < Random.Range(7,10); i++) {
-            //     KillCritter( Random.Range(0, 10) );
-            // }
+        //     DebugCritters();
+        //     // for ( int i = 0; i < Random.Range(7,10); i++) {
+        //     //     KillCritter( Random.Range(0, 10) );
+        //     // }
         // }
 
     }
 
-    // Send the specified critter ID to the Client-side
-    void GetPopulationCount( string id ) {
-        Debug.Log("GetPopulationCount " + id);
-        int total = GameObject.FindGameObjectsWithTag( id ).Length;
-        Application.ExternalCall("ReceivePopulationCount", id, total);
 
+    void LoadWallscopeScene( int scope )
+    {
+        string wallscope = "Habitat" + scope.ToString();
+        Debug.Log("Loading " + wallscope);
+        Application.LoadLevel(wallscope);
     }
 
 
+
+    // Send the specified critter ID to the Client-side
+    void GetPopulationCount( int id ) {
+        Debug.Log("GetPopulationCount " + id.ToString());
+
+        int total = 0;
+        GameObject[] herbivores = GameObject.FindGameObjectsWithTag( "Herbivore" );
+        GameObject[] predators = GameObject.FindGameObjectsWithTag( "Predator" );
+
+        foreach( GameObject cc in herbivores )
+        {
+            StatePatternCritter critter = cc.GetComponent<StatePatternCritter>();
+            if (critter.ID == id) total += 1;
+        }
+
+        if (total > 0 )
+        {
+            Application.ExternalCall("ReceivePopulationCount", id, total);
+            return;
+        }
+        else
+        {
+            foreach( GameObject cc in predators )
+            {
+                StatePatternCritter critter = cc.GetComponent<StatePatternCritter>();
+                if (critter.ID == id) total += 1;
+            }
+            Application.ExternalCall("ReceivePopulationCount", id, total);
+        }
+
+    }
 
 
     // Spawns a requested Critter in a radomized location based on the available
@@ -61,30 +92,37 @@ public class NutellaInterface : MonoBehaviour {
             case 0:
                 Debug.Log("Lets make a FlappyStripe");
                 InstantiateCritter(BrickPoints, FlappyStripe);
+                GetPopulationCount( 0 );
                 break;
             case 1:
                 Debug.Log("Lets make a Bally");
                 InstantiateCritter(PipePoints, Bally);
+                GetPopulationCount( 1 );
                 break;
             case 2:
                 Debug.Log("Lets make a Slimy");
                 InstantiateCritter(GenPoints, Slimy);
+                GetPopulationCount( 2 );
                 break;
             case 3:
                 Debug.Log("Lets make a Dino");
                 InstantiateCritter(BrickPoints, Dino);
+                GetPopulationCount( 3 );
                 break;
             case 6:
                 Debug.Log("Lets make a Piston");
                 InstantiateCritter(PipePoints, Piston);
+                GetPopulationCount( 6 );
                 break;
             case 7:
                 Debug.Log("Lets make a FlappyRing");
                 InstantiateCritter(GenPoints, FlappyRing);
+                GetPopulationCount( 7 );
                 break;
             case 8:
                 Debug.Log("Lets make a Jumpy");
                 InstantiateCritter(GenPoints, Jumpy);
+                GetPopulationCount( 8 );
                 break;
             default:
                 Debug.Log("SpawnCritter DEFAULT" + id);
@@ -144,6 +182,7 @@ public class NutellaInterface : MonoBehaviour {
     // Instatiates a given Critter positioned at a random location provided
     private void InstantiateCritter(Transform[] waypoints, GameObject critter)
     {
+
         int index = Random.Range(0, waypoints.Length-1);
         Vector3 position = waypoints[index].position;
         Debug.Log("InstantiateCritter ");
@@ -176,6 +215,7 @@ public class NutellaInterface : MonoBehaviour {
                     }
                 }
                 critter.navMeshAgent.SetDestination(destination.position);
+                critter.currentState = critter.exitState;
 
             }
         }
@@ -220,4 +260,5 @@ public class NutellaInterface : MonoBehaviour {
             };
         };
     }
+
 }
