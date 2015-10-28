@@ -15,6 +15,8 @@ public class NutellaInterface : MonoBehaviour {
     private Transform[] GenPoints;
     private Transform[] PipePoints;
     private Transform[] BrickPoints;
+	private GameObject[] obs;
+	private GameObject[] col;
 
 
 	// Use this for initialization
@@ -24,6 +26,13 @@ public class NutellaInterface : MonoBehaviour {
 	    Application.ExternalCall("initWallScopeStartState", true);
         Application.ExternalCall("ProgressUpdate", "Start", true);
         InitializeSpawnPoints();
+
+		obs = GameObject.FindGameObjectsWithTag("Obstacle");
+		col = GameObject.FindGameObjectsWithTag("Collapse");
+
+		foreach (GameObject obstacle in obs) {
+			obstacle.gameObject.SetActive(false);
+		}
 	}
 
 
@@ -37,7 +46,7 @@ public class NutellaInterface : MonoBehaviour {
         //         SpawnCritter( i );
         //     }
         // }
-
+		// pipeCollapse(0);
     }
 
 
@@ -279,4 +288,26 @@ public class NutellaInterface : MonoBehaviour {
         };
     }
 
+
+	void pipeCollapse(int collapse)
+	{
+
+		if (collapse > 0) {
+			foreach (GameObject c in col) {
+				c.gameObject.SetActive(false);
+			}
+			foreach (GameObject obstacle in obs) {
+				obstacle.gameObject.SetActive(true);
+			}
+		}
+		else {
+			foreach (GameObject c in col) {
+				c.gameObject.SetActive(true);
+			}
+			
+			foreach (GameObject obstacle in obs) {
+				obstacle.gameObject.SetActive(false);
+			}
+		}
+	}
 }
