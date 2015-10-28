@@ -24,7 +24,6 @@ public class NutellaInterface : MonoBehaviour {
 	    Application.ExternalCall("initWallScopeStartState", true);
         Application.ExternalCall("ProgressUpdate", "Start", true);
         InitializeSpawnPoints();
-        // DebugCritters();
 	}
 
 
@@ -33,25 +32,18 @@ public class NutellaInterface : MonoBehaviour {
         // if (Input.GetButton("Fire1"))
         // {
         //     DebugCritters();
-        //     // for ( int i = 0; i < Random.Range(7,10); i++) {
-        //     //     KillCritter( Random.Range(0, 10) );
-        //     // }
+        //     for ( int i = 0; i < 11; i++) {
+        //         GetPopulationCountDebug(i);
+        //         SpawnCritter( i );
+        //     }
         // }
 
     }
 
 
-    void LoadWallscopeScene( int scope )
-    {
-        string wallscope = "Habitat" + scope.ToString();
-        Debug.Log("Loading " + wallscope);
-        Application.LoadLevel(wallscope);
-    }
-
-
-
     // Send the specified critter ID to the Client-side
-    void GetPopulationCount( int id ) {
+    void GetPopulationCount( int id )
+    {
         Debug.Log("GetPopulationCount " + id.ToString());
 
         int total = 0;
@@ -81,6 +73,51 @@ public class NutellaInterface : MonoBehaviour {
 
     }
 
+    void GetPopulationCountDebug( int id )
+    {
+        Debug.Log("GetPopulationCount " + id.ToString());
+
+        int total = 0;
+        GameObject[] herbivores = GameObject.FindGameObjectsWithTag( "Herbivore" );
+        GameObject[] predators = GameObject.FindGameObjectsWithTag( "Predator" );
+
+        foreach( GameObject cc in herbivores )
+        {
+            StatePatternCritter critter = cc.GetComponent<StatePatternCritter>();
+            if (critter.ID == id) total += 1;
+        }
+
+        if (total > 0 )
+        {
+            Debug.Log("Herbivore: " + total.ToString() + " of " + id.ToString() );
+            return;
+        }
+        else
+        {
+            foreach( GameObject cc in predators )
+            {
+                StatePatternCritter critter = cc.GetComponent<StatePatternCritter>();
+                if (critter.ID == id) total += 1;
+            }
+            Debug.Log("Predator: " + total.ToString() + " of " + id.ToString() );
+        }
+    }
+
+
+    private void InitializeSpawnPoints()
+    {
+        Debug.Log("InitializeSpawnPoints");
+        // Populate them
+        PipePoints = _SetUpPointArrays( GameObject.FindGameObjectsWithTag("Pipe") );
+        BrickPoints = _SetUpPointArrays( GameObject.FindGameObjectsWithTag("Brick") );
+
+        // You have got to be kidding me....
+        GenPoints = _join( PipePoints, BrickPoints );
+
+        Debug.Log("InitializeSpawnPoints---DONE");
+        Application.ExternalCall("ProgressUpdate", "InitializeSpawnPoints", true);
+    }
+
 
     // Spawns a requested Critter in a radomized location based on the available
     // waypoints established
@@ -92,37 +129,30 @@ public class NutellaInterface : MonoBehaviour {
             case 0:
                 Debug.Log("Lets make a FlappyStripe");
                 InstantiateCritter(BrickPoints, FlappyStripe);
-                GetPopulationCount( 0 );
                 break;
             case 1:
                 Debug.Log("Lets make a Bally");
                 InstantiateCritter(PipePoints, Bally);
-                GetPopulationCount( 1 );
                 break;
             case 2:
                 Debug.Log("Lets make a Slimy");
                 InstantiateCritter(GenPoints, Slimy);
-                GetPopulationCount( 2 );
                 break;
             case 3:
                 Debug.Log("Lets make a Dino");
                 InstantiateCritter(BrickPoints, Dino);
-                GetPopulationCount( 3 );
                 break;
             case 6:
                 Debug.Log("Lets make a Piston");
                 InstantiateCritter(PipePoints, Piston);
-                GetPopulationCount( 6 );
                 break;
             case 7:
                 Debug.Log("Lets make a FlappyRing");
                 InstantiateCritter(GenPoints, FlappyRing);
-                GetPopulationCount( 7 );
                 break;
             case 8:
                 Debug.Log("Lets make a Jumpy");
                 InstantiateCritter(GenPoints, Jumpy);
-                GetPopulationCount( 8 );
                 break;
             default:
                 Debug.Log("SpawnCritter DEFAULT" + id);
@@ -164,20 +194,6 @@ public class NutellaInterface : MonoBehaviour {
         }
     }
 
-    private void InitializeSpawnPoints() {
-        Debug.Log("InitializeSpawnPoints");
-        // Populate them
-        PipePoints = _SetUpPointArrays( GameObject.FindGameObjectsWithTag("Pipe") );
-        BrickPoints = _SetUpPointArrays( GameObject.FindGameObjectsWithTag("Brick") );
-
-        // You have got to be kidding me....
-        GenPoints = _join( PipePoints, BrickPoints );
-
-        Debug.Log("InitializeSpawnPoints---DONE");
-        Application.ExternalCall("ProgressUpdate", "InitializeSpawnPoints", true);
-
-    }
-
 
     // Instatiates a given Critter positioned at a random location provided
     private void InstantiateCritter(Transform[] waypoints, GameObject critter)
@@ -190,6 +206,7 @@ public class NutellaInterface : MonoBehaviour {
         Instantiate(critter, position, waypoints[index].rotation);
         Application.ExternalCall("ProgressUpdate", "InstantiateCritter", true);
     }
+
 
     // Passes message to bug informing it is time to Die. Sets NavMesh Agents position to nearest exit point
     private void DestroyCritter(Transform[] waypoints, string tagName, int id )
@@ -253,7 +270,8 @@ public class NutellaInterface : MonoBehaviour {
     }
 
 
-    private void DebugCritters() {
+    private void DebugCritters()
+    {
         for (int j = 0; j < Random.Range(1, 4); j++) {
             for (int i = 0; i < 9; i++) {
                 SpawnCritter( i );

@@ -15,11 +15,8 @@ public class WanderState: ICritterState
     public WanderState(StatePatternCritter activeCritter)
     {
         critter = activeCritter;
-
         SetDurations();
-        MeshArea = NavMesh.GetAreaFromName("Brick") * 4; //MeshArea = 1 << NavMesh.GetNavMeshLayerFromName("Brick");
-
-        // Debug.Log("" + critter.ID.ToString() + " I can walk on " + MeshArea.ToString() );
+        MeshArea = NavMesh.GetAreaFromName("Brick") * 4;
     }
 
 
@@ -27,6 +24,7 @@ public class WanderState: ICritterState
     {
         Look();
         Wander();
+
     }
 
 
@@ -153,28 +151,28 @@ public class WanderState: ICritterState
         }
     }
 
-    public void ToWanderState()
-    {
-        critter.currentState = critter.wanderState;
-    }
+    public void ToWanderState() {}
 
     public void ToIdleState()
     {
         SetDurations();
         critter.navMeshAgent.Stop();
+        critter.navMeshAgent.avoidancePriority = 90;
         critter.currentState = critter.idleState;
     }
 
     public void ToForageState()
     {
         SetDurations();
+        critter.navMeshAgent.avoidancePriority = 70;
         critter.currentState = critter.forageState;
     }
 
-    public void ToFlightState(StatePatternCritter predator) {
+    public void ToFlightState(StatePatternCritter predator)
+    {
         SetDurations();
         critter.predator = predator;
-        // critter.predator.meshRendererFlag.material.color = Color.red;
+        critter.navMeshAgent.avoidancePriority = 20;
         critter.currentState = critter.flightState;
     }
 
@@ -182,12 +180,14 @@ public class WanderState: ICritterState
     {
         SetDurations();
         critter.prey = prey;
+        critter.navMeshAgent.avoidancePriority = 20;
         critter.currentState = critter.pursuitState;
     }
 
     public void ToExitState()
     {
         critter.prey = null;
+        critter.navMeshAgent.avoidancePriority = 0;
         critter.currentState = critter.exitState;
     }
 
@@ -200,12 +200,31 @@ public class WanderState: ICritterState
     }
 
 
+
+    private void ReturnToOrigin( )
+    {
+
+        // Sample the provided Mesh Area and get the nearest point
+        NavMesh.SamplePosition( new Vector3(0, 0, 0), out hit, Random.Range( 0f, critter.maxWalkDistance), MeshArea  );
+
+        critter.navMeshAgent.SetDestination( hit.position );
+    }
+
+
+
+
     private void Wander()
     {
         wanderTime += Time.deltaTime;
         // critter.meshRendererFlag.material.color = Color.cyan;
+        if ((critter.transform.position.x <= -12.5f || critter.transform.position.x >= 12f) ||
+            (critter.transform.position.z <= -9 || critter.transform.position.z >= 9f  ))
+        {
+            SetDurations();
+            ReturnToOrigin();
+            Application.ExternalCall("DebugMessage", "" + critter.ID.ToString() + " is out of range!! " + critter.transform.position.ToString() );
 
-        if ( critter.navMeshAgent.remainingDistance <= critter.navMeshAgent.stoppingDistance && !critter.navMeshAgent.pathPending)
+        } else if ( critter.navMeshAgent.remainingDistance <= critter.navMeshAgent.stoppingDistance && !critter.navMeshAgent.pathPending)
         {
             direction = Random.insideUnitSphere * critter.maxWalkDistance;
             direction += critter.transform.position;
@@ -217,7 +236,7 @@ public class WanderState: ICritterState
             // Debug.Log (" Pick a point! " + critter.ID.ToString() + position);
 
         }
-
+        Debug.Log(""+critter.ID.ToString() + "" + critter.transform.position.ToString());
         if ( wanderTime >= wanderDuration )
         {
             ToIdleState();

@@ -16,8 +16,7 @@ public class PursuitState: ICritterState
     {
         critter = activeCritter;
         MeshArea = NavMesh.GetAreaFromName("Brick") * 4; // MeshArea = 1 << NavMesh.GetNavMeshLayerFromName("Brick");
-        // NavMesh.GetAreaFromName("Brick")
-        // Debug.Log( " navMeshRadius is " + critter.navMeshAgent.radius.ToString());
+
         killZone = critter.navMeshRadius * 0.5f;
     }
 
@@ -62,22 +61,26 @@ public class PursuitState: ICritterState
 
     public void ToWanderState()
     {
+        critter.navMeshAgent.avoidancePriority = Random.Range(50, 100);
         critter.currentState = critter.wanderState;
     }
 
     public void ToIdleState()
     {
+        critter.navMeshAgent.avoidancePriority = 90;
         critter.currentState = critter.idleState;
     }
 
     public void ToForageState()
     {
+        critter.navMeshAgent.avoidancePriority = 70;
         critter.currentState = critter.forageState;
     }
 
     public void ToExitState()
     {
         critter.prey = null;
+        critter.navMeshAgent.avoidancePriority = 0;
         critter.currentState = critter.exitState;
     }
 
@@ -134,7 +137,7 @@ public class PursuitState: ICritterState
                 critter.navMeshAgent.radius = critter.navMeshRadius;
 
                 // Call App.js to instantiate recently offed critter
-                Application.ExternalCall("StablizePopulation", ID );
+                Application.ExternalCall("RequestPopulationCount", ID );
 
                 ToIdleState();
             } else if ( distance >= fleeingDistance )

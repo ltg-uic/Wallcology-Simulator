@@ -102,10 +102,9 @@ public class IdleState: ICritterState
 
     public void ToWanderState()
     {
-        // Debug.Log(" Its time to wander! " + critter.ID.ToString() );
-
         SetDurations();
         critter.navMeshAgent.Resume();
+        critter.navMeshAgent.avoidancePriority = Random.Range(50, 100);
         critter.currentState = critter.wanderState;
     }
 
@@ -115,6 +114,7 @@ public class IdleState: ICritterState
     public void ToForageState()
     {
         SetDurations();
+        critter.navMeshAgent.avoidancePriority = 70;
         critter.currentState = critter.forageState;
     }
 
@@ -123,6 +123,7 @@ public class IdleState: ICritterState
     {
         SetDurations();
         critter.predator = predator;
+        critter.navMeshAgent.avoidancePriority = 20;
         critter.currentState = critter.flightState;
     }
 
@@ -130,12 +131,14 @@ public class IdleState: ICritterState
     public void ToPursuitState(StatePatternCritter prey)
     {
         critter.prey = prey;
+        critter.navMeshAgent.avoidancePriority = 20;
         critter.currentState = critter.pursuitState;
     }
 
     public void ToExitState()
     {
         critter.prey = null;
+        critter.navMeshAgent.avoidancePriority = 0;
         critter.currentState = critter.exitState;
     }
 

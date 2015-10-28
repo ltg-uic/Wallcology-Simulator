@@ -20,7 +20,6 @@ public class StatePatternCritter : MonoBehaviour
 
     public Vector3 offset = new Vector3 (0,.5f,0);
 
-    [HideInInspector] public Color color = Color.clear;
 	[HideInInspector] public ICritterState currentState;
 	[HideInInspector] public WanderState wanderState;
     [HideInInspector] public IdleState idleState;
@@ -30,6 +29,7 @@ public class StatePatternCritter : MonoBehaviour
     [HideInInspector] public ExitState exitState;
     [HideInInspector] public EnterState enterState;
 	[HideInInspector] public NavMeshAgent navMeshAgent;
+    // [HideInInspector] public NavMeshObstacle navMeshObstacle;
 
     [HideInInspector] public StatePatternCritter predator;
     [HideInInspector] public StatePatternCritter prey;
@@ -46,13 +46,20 @@ public class StatePatternCritter : MonoBehaviour
         exitState = new ExitState (this);
         enterState = new EnterState (this);
 		navMeshAgent = GetComponent<NavMeshAgent>();
+
+        navMeshAgent.enabled = true;
+        // navMeshObstacle.enabled = false;
+
         navMeshRadius = navMeshAgent.radius;
+
+        navMeshAgent.avoidancePriority = Random.Range(0, 100);  // Randomly set the avoidance priority
 
 	}
 
 	// Use this for initialization
 	void Start ()
 	{
+        // navMeshObstacle.enabled = false;
 		currentState = enterState;
 	}
 

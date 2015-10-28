@@ -128,17 +128,23 @@ public class EnterState: ICritterState
 
     public void ToIdleState()
     {
+        critter.navMeshAgent.avoidancePriority = 90;  // set their avoidance to very low so they get pushed out of the way
         critter.currentState = critter.idleState;
     }
 
     public void ToForageState()
     {
+
         SetDurations();
+        critter.navMeshAgent.avoidancePriority = 70;
         critter.currentState = critter.forageState;
     }
 
-    public void ToFlightState(StatePatternCritter predator) {
+    public void ToFlightState(StatePatternCritter predator)
+    {
+
         SetDurations();
+        critter.navMeshAgent.avoidancePriority = 20;
         critter.predator = predator;
         // critter.predator.meshRendererFlag.material.color = Color.red;
         critter.currentState = critter.flightState;
@@ -148,8 +154,10 @@ public class EnterState: ICritterState
 
     public void ToExitState()
     {
+
         critter.prey = null;
         critter.predator = null;
+        critter.navMeshAgent.avoidancePriority = 0;
         critter.currentState = critter.enterState;
     }
 

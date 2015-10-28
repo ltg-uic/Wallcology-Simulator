@@ -90,18 +90,24 @@ public class ForageState: ICritterState
     {
         SetDurations();
         critter.navMeshAgent.Resume();
+        critter.navMeshAgent.avoidancePriority = Random.Range(50, 100);
         critter.currentState = critter.wanderState;
     }
 
     public void ToIdleState()
     {
+        // critter.navMeshObstacle.enabled = true;
         SetDurations();
+        critter.navMeshAgent.avoidancePriority = 90;
         critter.currentState = critter.idleState;
     }
 
     public void ToFlightState(StatePatternCritter predator)
     {
+        // critter.navMeshObstacle.enabled = false;
+
         SetDurations();
+        critter.navMeshAgent.avoidancePriority = 20;
         critter.predator = predator;
         critter.currentState = critter.flightState;
 
@@ -109,7 +115,10 @@ public class ForageState: ICritterState
 
     public void ToExitState()
     {
+        // critter.navMeshObstacle.enabled = false;
+
         critter.prey = null;
+        critter.navMeshAgent.avoidancePriority = 0;
         critter.currentState = critter.exitState;
     }
 

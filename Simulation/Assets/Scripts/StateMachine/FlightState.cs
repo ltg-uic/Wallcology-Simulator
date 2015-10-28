@@ -80,22 +80,26 @@ public class FlightState: ICritterState
 
     public void ToWanderState()
     {
+        critter.navMeshAgent.avoidancePriority = Random.Range(50, 100);
         critter.currentState = critter.wanderState;
     }
 
     public void ToIdleState()
     {
+        critter.navMeshAgent.avoidancePriority = 90;
         critter.currentState = critter.idleState;
     }
 
     public void ToForageState()
     {
+        critter.navMeshAgent.avoidancePriority = 70;
         critter.currentState = critter.forageState;
     }
 
     public void ToExitState()
     {
         critter.prey = null;
+        critter.navMeshAgent.avoidancePriority = 0;
         critter.currentState = critter.exitState;
     }
 
@@ -109,7 +113,7 @@ public class FlightState: ICritterState
     private void SetToAvoid( )
     {
         // Debug.Log(""+ critter.ID.ToString() + "RUUUUUNN!!!! " + critter.predator.ID.ToString());
-        Vector3 direction = (critter.predator.transform.position - critter.transform.position).normalized;
+        Vector3 direction = (critter.transform.position - critter.predator.transform.position).normalized;
 
         Vector3 destination = critter.transform.position + direction * fleeingDistance;
 
